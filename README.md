@@ -1,4 +1,4 @@
-# smart-warehouse
+# wotlk-raid-manager
 
 ## Start all services
 
