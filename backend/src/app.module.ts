@@ -1,7 +1,11 @@
+import { CharacterInfoModule } from "@modules/characterinfo/characterinfo.module"
+import { CompareModule } from "@modules/compare/compare.module"
 import { Module } from "@nestjs/common"
 import { TypeOrmModule } from "@nestjs/typeorm"
 @Module({
   imports: [
+    CharacterInfoModule,
+    CompareModule,
     TypeOrmModule.forRoot({
       name: "default",
       type: "mysql",
