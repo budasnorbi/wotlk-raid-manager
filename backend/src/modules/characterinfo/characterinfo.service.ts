@@ -7,9 +7,10 @@ import * as asyncFs from "fs/promises"
 import { dirname } from "path"
 import { Gem } from "@type/gems"
 import { Enchant } from "@type/enchants"
-import { AchievementsDB } from "@type/achievements"
+import { Achievements } from "@type/achievements"
 import { Glyph } from "@type/glyphs"
 import { ClassSpecs, Specs } from "@type/class-specs"
+import { ItemSet } from "@type/item-sets"
 const appDir = dirname(require.main.filename)
 
 @Injectable()
@@ -17,15 +18,23 @@ export class CharacterInfoService {
   gems: Gem[]
   enchants: Enchant[]
   items: DBItem[]
-  achievements: AchievementsDB
+  achievements: Achievements
   glyphs: Glyph[]
+  itemSets: ItemSet[]
 
   constructor() {
+    this.loadItemSets()
     this.loadGlyphsDB()
     this.loadAchievementsDB()
     this.loadGemsDB()
     this.loadEnchantsDB()
     this.loadItemsDB()
+  }
+
+  async loadItemSets() {
+    this.itemSets = JSON.parse(
+      (await asyncFs.readFile(`${appDir}/../data/item_sets.json`)).toString()
+    )
   }
 
   async loadGlyphsDB() {
@@ -202,7 +211,6 @@ export class CharacterInfoService {
               arcaneRes,
               material,
               block,
-              itemset,
               socketColor1,
               socketContent1,
               socketColor2,
@@ -210,6 +218,18 @@ export class CharacterInfoService {
               socketColor3,
               socketContent3,
               socketBonus
+            }
+            if (itemset !== 0) {
+              const detailedItemSet = this.itemSets.find((itemSet) => itemset === itemSet.ID)
+
+              if (detailedItemSet) {
+                const { FactionGainID, ID } = detailedItemSet
+                returnObj.item.itemset = { name: FactionGainID, id: ID }
+              } else {
+                returnObj.item.itemset = itemset
+              }
+            } else {
+              returnObj.item.itemset = itemset
             }
           } else {
             returnObj.item = null
@@ -222,12 +242,13 @@ export class CharacterInfoService {
             this.enchants.find((enchant) => enchant.enchantId === enchantId) ?? null
         }
 
-        if (splittedItemStr[2]?.includes("ench")) {
+        if (splittedItemStr[2]?.includes("gems")) {
           returnObj.gems = splittedItemStr[2]
             .replace("gems=", "")
             .split(":")
-            .map((gemId: string) =>
-              this.gems.find((gem) => gem.gemEnchantId === parseInt(gemId) ?? null)
+            .map(
+              (gemId: string) =>
+                this.gems.find((gem) => gem.gemEnchantId === parseInt(gemId)) ?? null
             )
             .filter((gem) => gem !== null)
         }
@@ -361,135 +382,5 @@ export class CharacterInfoService {
       secondaryGlyphs,
       secondaryTalentsSpecId
     }
-
-    // const talents: {
-    //   primary: number[]
-    //   secondary?: number[]
-    // } = { primary: [] }
-    // const glyphs: {
-    //   primary: { minor: number[]; major: number[] }
-    //   secondary?: { minor: number[]; major: number[] }
-    // } = {
-    //   primary: {
-    //     minor: [],
-    //     major: []
-    //   }
-    // }
-
-    // const { activeTalentGroupId, talentCount }: any = await this.page
-    //   .$$eval("#character-sheet .talent-spec-switch td a", (divEl: any) => {
-    //     let activeTalentGroupId = 0
-
-    //     if (divEl[0].parentElement.className === "selected") {
-    //       activeTalentGroupId = 0
-    //     }
-
-    //     if (divEl[1].parentElement.className === "selected") {
-    //       activeTalentGroupId = 1
-    //     }
-
-    //     return {
-    //       activeTalentGroupId,
-    //       talentCount: divEl.length
-    //     }
-    //   })
-    //   .catch(() => {
-    //     return {
-    //       activeTalentGroupId: 0,
-    //       talentCount: 1
-    //     }
-    //   })
-
-    // if (talentCount === 1) {
-    //   const primaryTalents: number[] = await this.page.$$eval(
-    //     `#spec-${0} a.talent`,
-    //     (anchors: any) => {
-    //       return anchors
-    //         .filter((x: any) => x.style.backgroundImage.includes("bwicons") === false)
-    //         .map((x: any) => parseInt(x.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   talents.primary = primaryTalents
-
-    //   const primaryTalentMajorGlyph = await this.page.$$eval(
-    //     `div[data-glyphs="${0}"] .glyph.major a`,
-    //     (anchors: any) => {
-    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   glyphs.primary.major = primaryTalentMajorGlyph
-
-    //   const primaryTalentMinorGlyph: number[] = await this.page.$$eval(
-    //     `div[data-glyphs="${0}"] .glyph.minor a`,
-    //     (anchors: any) => {
-    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   glyphs.primary.minor = primaryTalentMinorGlyph
-    // } else if (talentCount === 2) {
-    //   const primaryTalents: number[] = await this.page.$$eval(
-    //     `#spec-${0} a.talent`,
-    //     (anchors: any) => {
-    //       return anchors
-    //         .filter((x: any) => x.style.backgroundImage.includes("bwicons") === false)
-    //         .map((x: any) => parseInt(x.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   talents.primary = primaryTalents
-
-    //   const primaryTalentMajorGlyph: number[] = await this.page.$$eval(
-    //     `div[data-glyphs="${0}"] .glyph.major a`,
-    //     (anchors: any) => {
-    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   glyphs.primary.major = primaryTalentMajorGlyph
-
-    //   const primaryTalentMinorGlyph: number[] = await this.page.$$eval(
-    //     `div[data-glyphs="${0}"] .glyph.minor a`,
-    //     (anchors: any) => {
-    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   glyphs.primary.minor = primaryTalentMinorGlyph
-
-    //   const secondaryTalents: number[] = await this.page.$$eval(
-    //     `#spec-${1} a.talent`,
-    //     (anchors: any) => {
-    //       return anchors
-    //         .filter((x: any) => x.style.backgroundImage.includes("bwicons") === false)
-    //         .map((x: any) => parseInt(x.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   talents.secondary = secondaryTalents
-
-    //   const secondaryTalentMajorGlyph: number[] = await this.page.$$eval(
-    //     `div[data-glyphs="${1}"] .glyph.major a`,
-    //     (anchors: any) => {
-    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   glyphs.secondary = { major: [], minor: [] }
-    //   glyphs.secondary.major = secondaryTalentMajorGlyph
-
-    //   const secondaryTalentMinorGlyph: number[] = await this.page.$$eval(
-    //     `div[data-glyphs="${1}"] .glyph.minor a`,
-    //     (anchors: any) => {
-    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
-    //     }
-    //   )
-
-    //   glyphs.secondary.minor = secondaryTalentMinorGlyph
-    // }
-
-    // await this.browser.close()
   }
 }
