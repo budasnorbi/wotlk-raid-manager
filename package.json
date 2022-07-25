@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@types/dom-parser": "^0.1.1"
+  }
+}

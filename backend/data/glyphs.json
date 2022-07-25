@@ -1,0 +1,2072 @@
+[
+  {
+    "entry": 40896,
+    "spellId": 54810,
+    "name": "Glyph of Frenzied Regeneration",
+    "description": "While Frenzied Regeneration is active, healing effects on you are $54810s1% more powerful."
+  },
+  {
+    "entry": 40897,
+    "spellId": 54811,
+    "name": "Glyph of Maul",
+    "description": "Your Maul ability now hits $54811s1 additional target."
+  },
+  {
+    "entry": 40899,
+    "spellId": 54812,
+    "name": "Glyph of Growl",
+    "description": "Increases the chance for your Growl ability to work successfully by $54812s1%."
+  },
+  {
+    "entry": 40900,
+    "spellId": 54813,
+    "name": "Glyph of Mangle",
+    "description": "Increases the damage done by Mangle by $54813s1%."
+  },
+  {
+    "entry": 40901,
+    "spellId": 54815,
+    "name": "Glyph of Shred",
+    "description": "Each time you Shred, the duration of your Rip on the target is extended $54815s1 sec, up to a maximum of $54815s2 sec."
+  },
+  {
+    "entry": 40902,
+    "spellId": 54818,
+    "name": "Glyph of Rip",
+    "description": "Increases the duration of your Rip ability by ${$54818m1/1000} sec."
+  },
+  {
+    "entry": 40903,
+    "spellId": 54821,
+    "name": "Glyph of Rake",
+    "description": "Your Rake ability prevents targets from fleeing."
+  },
+  {
+    "entry": 40906,
+    "spellId": 54824,
+    "name": "Glyph of Swiftmend",
+    "description": "Your Swiftmend ability no longer consumes a Rejuvenation or Regrowth effect from the target."
+  },
+  {
+    "entry": 40908,
+    "spellId": 54832,
+    "name": "Glyph of Innervate",
+    "description": "Innervate now grants the caster $54832s1% of $ghis:her; base mana pool over $54833d in addition to the normal effects of Innervate."
+  },
+  {
+    "entry": 40909,
+    "spellId": 54733,
+    "name": "Glyph of Rebirth",
+    "description": "Players resurrected by Rebirth are returned to life with $54733s2% health."
+  },
+  {
+    "entry": 40912,
+    "spellId": 54743,
+    "name": "Glyph of Regrowth",
+    "description": "Increases the healing of your Regrowth spell by $54743s1% if your Regrowth effect is still active on the target."
+  },
+  {
+    "entry": 40913,
+    "spellId": 54754,
+    "name": "Glyph of Rejuvenation",
+    "description": "While your Rejuvenation targets are below 50% health, you will heal them for an additional $54754s1% health."
+  },
+  {
+    "entry": 40914,
+    "spellId": 54825,
+    "name": "Glyph of Healing Touch",
+    "description": "Decreases the cast time of Healing Touch by ${$54825m3/-1000}.1 sec, the mana cost by $54825s1%, and the amount healed by $54825s2%."
+  },
+  {
+    "entry": 40915,
+    "spellId": 54826,
+    "name": "Glyph of Lifebloom",
+    "description": "Increases the duration of Lifebloom by ${$54826m1/1000} sec."
+  },
+  {
+    "entry": 40919,
+    "spellId": 54830,
+    "name": "Glyph of Insect Swarm",
+    "description": "Increases the damage of your Insect Swarm ability by $54830s2%, but it no longer affects your victim's chance to hit."
+  },
+  {
+    "entry": 40920,
+    "spellId": 54831,
+    "name": "Glyph of Hurricane",
+    "description": "Your Hurricane ability now also slows the movement speed of its victims by $54831s1%."
+  },
+  {
+    "entry": 40921,
+    "spellId": 54828,
+    "name": "Glyph of Starfall",
+    "description": "Reduces the cooldown of Starfall by ${$54828m1/-1000} sec."
+  },
+  {
+    "entry": 40922,
+    "spellId": 54756,
+    "name": "Glyph of Wrath",
+    "description": "Reduces the pushback suffered from damaging attacks while casting your Wrath spell by $54756s1%."
+  },
+  {
+    "entry": 40923,
+    "spellId": 54829,
+    "name": "Glyph of Moonfire",
+    "description": "Increases the periodic damage of your Moonfire ability by $54829s2%, but initial damage is decreased by $54829s1%."
+  },
+  {
+    "entry": 40924,
+    "spellId": 54760,
+    "name": "Glyph of Entangling Roots",
+    "description": "Increases the damage your Entangling Roots victims can take before the Entangling Roots automatically breaks by $54760s1%."
+  },
+  {
+    "entry": 41092,
+    "spellId": 54922,
+    "name": "Glyph of Judgement",
+    "description": "Your Judgements deal $54922s1% more damage."
+  },
+  {
+    "entry": 41094,
+    "spellId": 54925,
+    "name": "Glyph of Seal of Command",
+    "description": "You gain $68082s1% of your base mana each time you use a Judgement with Seal of Command active."
+  },
+  {
+    "entry": 41095,
+    "spellId": 54923,
+    "name": "Glyph of Hammer of Justice",
+    "description": "Increases your Hammer of Justice range by $54923s1 yards."
+  },
+  {
+    "entry": 41096,
+    "spellId": 54924,
+    "name": "Glyph of Spiritual Attunement",
+    "description": "Increases the amount of mana gained from your Spiritual Attunement spell by an additional $54924s1%."
+  },
+  {
+    "entry": 41097,
+    "spellId": 54926,
+    "name": "Glyph of Hammer of Wrath",
+    "description": "Reduces the mana cost of Hammer of Wrath by ${$54926m1/-1}%."
+  },
+  {
+    "entry": 41098,
+    "spellId": 54927,
+    "name": "Glyph of Crusader Strike",
+    "description": "Reduces the mana cost of your Crusader Strike ability by $54927s1%."
+  },
+  {
+    "entry": 41099,
+    "spellId": 54928,
+    "name": "Glyph of Consecration",
+    "description": "Increases the duration and cooldown of Consecration by ${$54928m1/1000} sec."
+  },
+  {
+    "entry": 41100,
+    "spellId": 54929,
+    "name": "Glyph of Righteous Defense",
+    "description": "Increases the chance for your Righteous Defense and Hand of Reckoning abilities to work successfully by $54929s1% on each target."
+  },
+  {
+    "entry": 41101,
+    "spellId": 54930,
+    "name": "Glyph of Avenger's Shield",
+    "description": "Your Avenger's Shield hits $54930s1 fewer targets, but for $54930s2% more damage."
+  },
+  {
+    "entry": 41102,
+    "spellId": 54931,
+    "name": "Glyph of Turn Evil",
+    "description": "Reduces the casting time of your Turn Evil spell by $54931s1%, but increases the cooldown by ${$54931m2/1000} sec."
+  },
+  {
+    "entry": 41103,
+    "spellId": 54934,
+    "name": "Glyph of Exorcism",
+    "description": "Increases damage done by Exorcism by $54934s1%."
+  },
+  {
+    "entry": 41104,
+    "spellId": 54935,
+    "name": "Glyph of Cleansing",
+    "description": "Reduces the mana cost of your Cleanse and Purify spells by $54935s1%."
+  },
+  {
+    "entry": 41105,
+    "spellId": 54936,
+    "name": "Glyph of Flash of Light",
+    "description": "Your Flash of Light has an additional $54936s1% critical strike chance."
+  },
+  {
+    "entry": 41107,
+    "spellId": 54938,
+    "name": "Glyph of Avenging Wrath",
+    "description": "Reduces the cooldown of your Hammer of Wrath spell by $54938s1% while Avenging Wrath is active."
+  },
+  {
+    "entry": 41108,
+    "spellId": 54939,
+    "name": "Glyph of Divinity",
+    "description": "Your Lay on Hands grants twice as much mana as normal and also grants you as much mana as it grants your target."
+  },
+  {
+    "entry": 41109,
+    "spellId": 54940,
+    "name": "Glyph of Seal of Wisdom",
+    "description": "While Seal of Wisdom is active, the cost of your healing spells is reduced by $54940s1%."
+  },
+  {
+    "entry": 41110,
+    "spellId": 54943,
+    "name": "Glyph of Seal of Light",
+    "description": "While Seal of Light is active, the effect of your healing spells is increased by $54943s1%."
+  },
+  {
+    "entry": 41517,
+    "spellId": 55437,
+    "name": "Glyph of Chain Heal",
+    "description": "Your Chain Heal heals 1 additional target."
+  },
+  {
+    "entry": 41518,
+    "spellId": 55449,
+    "name": "Glyph of Chain Lightning",
+    "description": "Your Chain Lightning strikes 1 additional target."
+  },
+  {
+    "entry": 41524,
+    "spellId": 55454,
+    "name": "Glyph of Lava",
+    "description": "Your Lava Burst spell gains an additional $55454s1% of your spellpower."
+  },
+  {
+    "entry": 41526,
+    "spellId": 55442,
+    "name": "Glyph of Shocking",
+    "description": "Reduces the global cooldown triggered by your shock spells to $55442m2 sec."
+  },
+  {
+    "entry": 41527,
+    "spellId": 55439,
+    "name": "Glyph of Earthliving Weapon",
+    "description": "Increases the chance for your Earthliving weapon to trigger by $55439s1%."
+  },
+  {
+    "entry": 41529,
+    "spellId": 55455,
+    "name": "Glyph of Fire Elemental Totem",
+    "description": "Reduces the cooldown of your Fire Elemental Totem by ${$55455m1/-60000} min."
+  },
+  {
+    "entry": 41530,
+    "spellId": 55450,
+    "name": "Glyph of Fire Nova",
+    "description": "Reduces the cooldown of your Fire Nova spell by ${$55450m1/-1000} seconds."
+  },
+  {
+    "entry": 41531,
+    "spellId": 55447,
+    "name": "Glyph of Flame Shock",
+    "description": "Increases the critical strike damage bonus of your Flame Shock damage by $55447s1%."
+  },
+  {
+    "entry": 41532,
+    "spellId": 55451,
+    "name": "Glyph of Flametongue Weapon",
+    "description": "Increases spell critical strike chance by $55451s1% while Flametongue Weapon is active."
+  },
+  {
+    "entry": 41533,
+    "spellId": 55456,
+    "name": "Glyph of Healing Stream Totem",
+    "description": "Your Healing Stream Totem heals for an additional $55456s1%."
+  },
+  {
+    "entry": 41534,
+    "spellId": 55440,
+    "name": "Glyph of Healing Wave",
+    "description": "Your Healing Wave also heals you for $55440s1% of the healing effect when you heal someone else."
+  },
+  {
+    "entry": 41535,
+    "spellId": 55438,
+    "name": "Glyph of Lesser Healing Wave",
+    "description": "Your Lesser Healing Wave heals for $55438s1% more if the target is also affected by Earth Shield."
+  },
+  {
+    "entry": 41536,
+    "spellId": 55453,
+    "name": "Glyph of Lightning Bolt",
+    "description": "Increases the damage dealt by Lightning Bolt by $55453s1%."
+  },
+  {
+    "entry": 41537,
+    "spellId": 55448,
+    "name": "Glyph of Lightning Shield",
+    "description": "Increases the damage from Lightning Shield by $55448s1%."
+  },
+  {
+    "entry": 41538,
+    "spellId": 55441,
+    "name": "Glyph of Mana Tide Totem",
+    "description": "Your Mana Tide Totem grants an additional $55441s% of each target's maximum mana each time it pulses."
+  },
+  {
+    "entry": 41539,
+    "spellId": 55446,
+    "name": "Glyph of Stormstrike",
+    "description": "Increases the Nature damage bonus from your Stormstrike ability by an additional $55446s1%."
+  },
+  {
+    "entry": 41540,
+    "spellId": 55444,
+    "name": "Glyph of Lava Lash",
+    "description": "Damage on your Lava Lash is increased by an additional $55444s1% if your weapon is enchanted with Flametongue."
+  },
+  {
+    "entry": 41541,
+    "spellId": 55436,
+    "name": "Glyph of Water Mastery",
+    "description": "Increases the passive mana regeneration of your Water Shield spell by $55436s1%."
+  },
+  {
+    "entry": 41542,
+    "spellId": 55445,
+    "name": "Glyph of Windfury Weapon",
+    "description": "Increases the chance per swing for Windfury Weapon to trigger by $55445s1%."
+  },
+  {
+    "entry": 41547,
+    "spellId": 55443,
+    "name": "Glyph of Frost Shock",
+    "description": "Increases the duration of your Frost Shock by ${$55443m1/1000} sec."
+  },
+  {
+    "entry": 41552,
+    "spellId": 55452,
+    "name": "Glyph of Elemental Mastery",
+    "description": "Reduces the cooldown of your Elemental Mastery ability by ${$55452m1/-1000} sec."
+  },
+  {
+    "entry": 42396,
+    "spellId": 55675,
+    "name": "Glyph of Circle of Healing",
+    "description": "Your Circle of Healing spell heals 1 additional target."
+  },
+  {
+    "entry": 42397,
+    "spellId": 55677,
+    "name": "Glyph of Dispel Magic",
+    "description": "Your Dispel Magic spell also heals your target for $55677s1% of maximum health."
+  },
+  {
+    "entry": 42398,
+    "spellId": 55684,
+    "name": "Glyph of Fade",
+    "description": "Reduces the cooldown of your Fade spell by ${$55684m2/-1000} sec."
+  },
+  {
+    "entry": 42399,
+    "spellId": 55678,
+    "name": "Glyph of Fear Ward",
+    "description": "Reduces cooldown and duration of Fear Ward by ${$55678m1/-1000} sec."
+  },
+  {
+    "entry": 42400,
+    "spellId": 55679,
+    "name": "Glyph of Flash Heal",
+    "description": "Reduces the mana cost of your Flash Heal by $55679s1%."
+  },
+  {
+    "entry": 42401,
+    "spellId": 55683,
+    "name": "Glyph of Holy Nova",
+    "description": "Increases the damage and healing of your Holy Nova spell by an additional $55683s1%."
+  },
+  {
+    "entry": 42402,
+    "spellId": 55686,
+    "name": "Glyph of Inner Fire",
+    "description": "Increases the armor from your Inner Fire spell by $55686m1%."
+  },
+  {
+    "entry": 42403,
+    "spellId": 55673,
+    "name": "Glyph of Lightwell",
+    "description": "Increases the amount healed by your Lightwell by $55673s1%"
+  },
+  {
+    "entry": 42404,
+    "spellId": 55691,
+    "name": "Glyph of Mass Dispel",
+    "description": "Reduces the mana cost of Mass Dispel by $55691s1%."
+  },
+  {
+    "entry": 42405,
+    "spellId": 55688,
+    "name": "Glyph of Mind Control",
+    "description": "Reduces the chance targets will resist or break your Mind Control spell by an additional $55688s1%."
+  },
+  {
+    "entry": 42406,
+    "spellId": 55681,
+    "name": "Glyph of Shadow Word: Pain",
+    "description": "The periodic damage ticks of your Shadow Word: Pain spell restore $55681s1% of your base mana."
+  },
+  {
+    "entry": 42407,
+    "spellId": 55689,
+    "name": "Glyph of Shadow",
+    "description": "While in Shadowform, your non-periodic spell critical strikes increase your spell power by $61792s1% of your Spirit for $61792d."
+  },
+  {
+    "entry": 42408,
+    "spellId": 55672,
+    "name": "Glyph of Power Word: Shield",
+    "description": "Your Power Word: Shield also heals the target for $55672s1% of the absorption amount."
+  },
+  {
+    "entry": 42409,
+    "spellId": 55680,
+    "name": "Glyph of Prayer of Healing",
+    "description": "Your Prayer of Healing spell also heals an additional $55680s1% of its initial heal over 6 sec."
+  },
+  {
+    "entry": 42410,
+    "spellId": 55676,
+    "name": "Glyph of Psychic Scream",
+    "description": "Increases the duration of your Psychic Scream by ${$55676m1/1000} sec. and increases its cooldown by ${$55676m2/1000} sec."
+  },
+  {
+    "entry": 42411,
+    "spellId": 55674,
+    "name": "Glyph of Renew",
+    "description": "Reduces the duration of your Renew by ${$55674m1/-1000} sec. but increases the amount healed each tick by $55674s2%."
+  },
+  {
+    "entry": 42412,
+    "spellId": 55690,
+    "name": "Glyph of Scourge Imprisonment",
+    "description": "Reduces the cast time of your Shackle Undead by ${$55690m1/-1000}.1 sec."
+  },
+  {
+    "entry": 42414,
+    "spellId": 55682,
+    "name": "Glyph of Shadow Word: Death",
+    "description": "Targets below $55682s1% health take an additional $55682s2% damage from your Shadow Word: Death spell."
+  },
+  {
+    "entry": 42415,
+    "spellId": 55687,
+    "name": "Glyph of Mind Flay",
+    "description": "Increases the damage done by your Mind Flay spell by $55687s1% when your target is afflicted with Shadow Word: Pain."
+  },
+  {
+    "entry": 42416,
+    "spellId": 55692,
+    "name": "Glyph of Smite",
+    "description": "Your Smite spell inflicts an additional $55692s1% damage against targets afflicted by Holy Fire."
+  },
+  {
+    "entry": 42417,
+    "spellId": 55685,
+    "name": "Glyph of Spirit of Redemption",
+    "description": "Increases the duration of Spirit of Redemption by ${$55685m2/1000} sec."
+  },
+  {
+    "entry": 42453,
+    "spellId": 56242,
+    "name": "Glyph of Incinerate",
+    "description": "Increases the damage done by Incinerate by $56242m1%."
+  },
+  {
+    "entry": 42454,
+    "spellId": 56235,
+    "name": "Glyph of Conflagrate",
+    "description": "Your Conflagrate spell no longer consumes your Immolate or Shadowflame spell from the target."
+  },
+  {
+    "entry": 42455,
+    "spellId": 56218,
+    "name": "Glyph of Corruption",
+    "description": "Your Corruption spell has a 4% chance to cause you to enter a Shadow Trance state after damaging the opponent.  The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by $17941s1%."
+  },
+  {
+    "entry": 42456,
+    "spellId": 56241,
+    "name": "Glyph of Curse of Agony",
+    "description": "Increases the duration of your Curse of Agony by ${$56241m1/1000} sec."
+  },
+  {
+    "entry": 42457,
+    "spellId": 56232,
+    "name": "Glyph of Death Coil",
+    "description": "Increases the duration of your Death Coil by ${$56232m1/1000}.1 sec."
+  },
+  {
+    "entry": 42458,
+    "spellId": 56244,
+    "name": "Glyph of Fear",
+    "description": "Increases the damage your Fear target can take before the Fear effect is removed by $56244s1%."
+  },
+  {
+    "entry": 42459,
+    "spellId": 56246,
+    "name": "Glyph of Felguard",
+    "description": "Increases the Felguard's total attack power by $56246s1%."
+  },
+  {
+    "entry": 42460,
+    "spellId": 56249,
+    "name": "Glyph of Felhunter",
+    "description": "When your Felhunter uses Devour Magic, you will also be healed for that amount."
+  },
+  {
+    "entry": 42461,
+    "spellId": 56238,
+    "name": "Glyph of Health Funnel",
+    "description": "Reduces the pushback suffered from damaging attacks while channeling your Health Funnel spell by $56238s1%."
+  },
+  {
+    "entry": 42462,
+    "spellId": 56224,
+    "name": "Glyph of Healthstone",
+    "description": "You receive $56224s1% more healing from using a healthstone."
+  },
+  {
+    "entry": 42463,
+    "spellId": 56217,
+    "name": "Glyph of Howl of Terror",
+    "description": "Reduces the cooldown on your Howl of Terror spell by ${$56217m1/-1000} sec."
+  },
+  {
+    "entry": 42464,
+    "spellId": 56228,
+    "name": "Glyph of Immolate",
+    "description": "Increases the periodic damage of your Immolate by $56228s2%."
+  },
+  {
+    "entry": 42465,
+    "spellId": 56248,
+    "name": "Glyph of Imp",
+    "description": "Increases the damage done by your Imp's Firebolt spell by $56248s1%."
+  },
+  {
+    "entry": 42466,
+    "spellId": 56226,
+    "name": "Glyph of Searing Pain",
+    "description": "Increases the critical strike bonus of your Searing Pain by $56226s1%."
+  },
+  {
+    "entry": 42467,
+    "spellId": 56240,
+    "name": "Glyph of Shadow Bolt",
+    "description": "Reduces the mana cost of your Shadow Bolt by $56240s1%."
+  },
+  {
+    "entry": 42468,
+    "spellId": 56229,
+    "name": "Glyph of Shadowburn",
+    "description": "Increases the critical strike chance of Shadowburn by $56229s1% when the target is below 35% health."
+  },
+  {
+    "entry": 42469,
+    "spellId": 56216,
+    "name": "Glyph of Siphon Life",
+    "description": "Increases the healing you receive from your Siphon Life talent by $56216s1%."
+  },
+  {
+    "entry": 42470,
+    "spellId": 56231,
+    "name": "Glyph of Soulstone",
+    "description": "Increases the amount of health you gain from resurrecting via a Soulstone by $56231s1%."
+  },
+  {
+    "entry": 42471,
+    "spellId": 56250,
+    "name": "Glyph of Succubus",
+    "description": "Your Succubus's Seduction ability also removes all damage over time effects from the target."
+  },
+  {
+    "entry": 42472,
+    "spellId": 56233,
+    "name": "Glyph of Unstable Affliction",
+    "description": "Decreases the casting time of your Unstable Affliction by ${$56233m1/-1000}.1 sec."
+  },
+  {
+    "entry": 42473,
+    "spellId": 56247,
+    "name": "Glyph of Voidwalker",
+    "description": "Increases your Voidwalker's total Stamina by $56247s1%."
+  },
+  {
+    "entry": 42734,
+    "spellId": 56360,
+    "name": "Glyph of Arcane Explosion",
+    "description": "Reduces mana cost of Arcane Explosion by $56360s1%."
+  },
+  {
+    "entry": 42735,
+    "spellId": 56363,
+    "name": "Glyph of Arcane Missiles",
+    "description": "Increases the critical strike damage bonus of Arcane Missiles by $56363s1%."
+  },
+  {
+    "entry": 42736,
+    "spellId": 56381,
+    "name": "Glyph of Arcane Power",
+    "description": "Increases the duration of Arcane Power by ${$56381m1/1000} sec."
+  },
+  {
+    "entry": 42737,
+    "spellId": 56365,
+    "name": "Glyph of Blink",
+    "description": "Increases the distance you travel with the Blink spell by $56365s1 yards."
+  },
+  {
+    "entry": 42738,
+    "spellId": 56380,
+    "name": "Glyph of Evocation",
+    "description": "Your Evocation ability also causes you to regain ${$56380m1*4}% of your health over its duration."
+  },
+  {
+    "entry": 42739,
+    "spellId": 56368,
+    "name": "Glyph of Fireball",
+    "description": "Reduces the casting time of your Fireball spell by ${$56368m1/-1000}.2 sec, but removes the damage over time effect."
+  },
+  {
+    "entry": 42740,
+    "spellId": 56369,
+    "name": "Glyph of Fire Blast",
+    "description": "Increases the critical strike chance of Fire Blast by $56369s1% when the target is stunned or incapacitated."
+  },
+  {
+    "entry": 42741,
+    "spellId": 56376,
+    "name": "Glyph of Frost Nova",
+    "description": "Your Frost Nova targets can take an additional $56376s1% damage before the Frost Nova effect automatically breaks."
+  },
+  {
+    "entry": 42743,
+    "spellId": 56384,
+    "name": "Glyph of Ice Armor",
+    "description": "Your Ice Armor and Frost Armor spells grant an additional $56384s1% armor and resistance."
+  },
+  {
+    "entry": 42744,
+    "spellId": 56372,
+    "name": "Glyph of Ice Block",
+    "description": "Your Frost Nova cooldown is now reset every time you use Ice Block."
+  },
+  {
+    "entry": 42745,
+    "spellId": 56377,
+    "name": "Glyph of Ice Lance",
+    "description": "Your Ice Lance now causes $56377s1 times damage against frozen targets higher level than you instead of triple damage."
+  },
+  {
+    "entry": 42746,
+    "spellId": 56374,
+    "name": "Glyph of Icy Veins",
+    "description": "Your Icy Veins ability also removes all movement slowing and cast time slowing effects."
+  },
+  {
+    "entry": 42747,
+    "spellId": 56371,
+    "name": "Glyph of Scorch",
+    "description": "Increases the damage of your Scorch spell by $56371s1%."
+  },
+  {
+    "entry": 42748,
+    "spellId": 56366,
+    "name": "Glyph of Invisibility",
+    "description": "Increases the duration of the Invisibility effect by $/1000;56366s1 sec."
+  },
+  {
+    "entry": 42749,
+    "spellId": 56383,
+    "name": "Glyph of Mage Armor",
+    "description": "Your Mage Armor spell grants an additional $56383s1% mana regeneration while casting."
+  },
+  {
+    "entry": 42750,
+    "spellId": 56367,
+    "name": "Glyph of Mana Gem",
+    "description": "Increases the mana received from using a mana gem by $56367s1%."
+  },
+  {
+    "entry": 42751,
+    "spellId": 56382,
+    "name": "Glyph of Molten Armor",
+    "description": "Your Molten Armor grants an additional $56382s1% of your spirit as critical strike rating."
+  },
+  {
+    "entry": 42752,
+    "spellId": 56375,
+    "name": "Glyph of Polymorph",
+    "description": "Your Polymorph spell also removes all damage over time effects from the target."
+  },
+  {
+    "entry": 42753,
+    "spellId": 56364,
+    "name": "Glyph of Remove Curse",
+    "description": "Your Remove Curse spell also makes the target immune to all curses for $60803d."
+  },
+  {
+    "entry": 42754,
+    "spellId": 56373,
+    "name": "Glyph of Water Elemental",
+    "description": "Reduces the cooldown of your Summon Water Elemental spell by ${$56373m1/-1000} sec."
+  },
+  {
+    "entry": 42897,
+    "spellId": 56824,
+    "name": "Glyph of Aimed Shot",
+    "description": "Reduces the cooldown of your Aimed Shot ability by ${$56824m1/-1000} sec."
+  },
+  {
+    "entry": 42898,
+    "spellId": 56841,
+    "name": "Glyph of Arcane Shot",
+    "description": "Your Arcane Shot refunds $56841s1% of its mana cost if the target has one of your Stings active on it."
+  },
+  {
+    "entry": 42899,
+    "spellId": 56857,
+    "name": "Glyph of the Beast",
+    "description": "Increases the attack power bonus of Aspect of the Beast for you and your pet by an additional $56857s1%."
+  },
+  {
+    "entry": 42900,
+    "spellId": 56833,
+    "name": "Glyph of Mending",
+    "description": "Increases the healing done by your Mend Pet ability by $56833s1%."
+  },
+  {
+    "entry": 42901,
+    "spellId": 56851,
+    "name": "Glyph of Aspect of the Viper",
+    "description": "Increases the amount of mana gained from attacks while Aspect of the Viper is active by $56851s1%."
+  },
+  {
+    "entry": 42902,
+    "spellId": 56830,
+    "name": "Glyph of Bestial Wrath",
+    "description": "Decreases the cooldown of Bestial Wrath by ${$56830m1/-1000} sec."
+  },
+  {
+    "entry": 42903,
+    "spellId": 56850,
+    "name": "Glyph of Deterrence",
+    "description": "Decreases the cooldown of Deterrence by ${$56850m1/-1000} sec."
+  },
+  {
+    "entry": 42904,
+    "spellId": 56844,
+    "name": "Glyph of Disengage",
+    "description": "Decreases the cooldown of Disengage by ${$56844m1/-1000} sec."
+  },
+  {
+    "entry": 42905,
+    "spellId": 56845,
+    "name": "Glyph of Freezing Trap",
+    "description": "When your Freezing Trap breaks, the victim's movement speed is reduced by $61394s1% for $61394d."
+  },
+  {
+    "entry": 42906,
+    "spellId": 56847,
+    "name": "Glyph of Frost Trap",
+    "description": "Increases the radius of the effect from your Frost Trap by $56847s1 yards."
+  },
+  {
+    "entry": 42907,
+    "spellId": 56829,
+    "name": "Glyph of Hunter's Mark",
+    "description": "Increases the attack power bonus of your Hunter's Mark by $56829s1%."
+  },
+  {
+    "entry": 42908,
+    "spellId": 56846,
+    "name": "Glyph of Immolation Trap",
+    "description": "Decreases the duration of the effect from your Immolation Trap by 6 sec., but damage while active is increased by $56846s2%."
+  },
+  {
+    "entry": 42909,
+    "spellId": 56856,
+    "name": "Glyph of the Hawk",
+    "description": "Increases the haste bonus of the Improved Aspect of the Hawk effect by an additional $56856s1%."
+  },
+  {
+    "entry": 42910,
+    "spellId": 56836,
+    "name": "Glyph of Multi-Shot",
+    "description": "Decreases the cooldown of Multi-Shot by ${$56836m1/-1000} sec."
+  },
+  {
+    "entry": 42911,
+    "spellId": 56828,
+    "name": "Glyph of Rapid Fire",
+    "description": "Increases the haste from Rapid Fire by an additional $56828s1%."
+  },
+  {
+    "entry": 42912,
+    "spellId": 56832,
+    "name": "Glyph of Serpent Sting",
+    "description": "Increases the duration of your Serpent Sting by ${$56832m1/1000} sec."
+  },
+  {
+    "entry": 42913,
+    "spellId": 56849,
+    "name": "Glyph of Snake Trap",
+    "description": "Snakes from your Snake Trap take $56849s1% reduced damage from area of effect spells."
+  },
+  {
+    "entry": 42914,
+    "spellId": 56826,
+    "name": "Glyph of Steady Shot",
+    "description": "Increases the damage dealt by Steady Shot by $56826s1% when your target is afflicted with Serpent Sting."
+  },
+  {
+    "entry": 42915,
+    "spellId": 56842,
+    "name": "Glyph of Trueshot Aura",
+    "description": "While your Trueshot Aura is active, you have $56842s1% increased critical strike chance on your Aimed Shot."
+  },
+  {
+    "entry": 42916,
+    "spellId": 56838,
+    "name": "Glyph of Volley",
+    "description": "Decreases the mana cost of Volley by $56838s1%."
+  },
+  {
+    "entry": 42917,
+    "spellId": 56848,
+    "name": "Glyph of Wyvern Sting",
+    "description": "Decreases the cooldown of your Wyvern Sting by ${$56848m1/-1000} sec."
+  },
+  {
+    "entry": 42955,
+    "spellId": 56813,
+    "name": "Glyph of Ambush",
+    "description": "Increases the range on Ambush by $56813s1 yards."
+  },
+  {
+    "entry": 42956,
+    "spellId": 56800,
+    "name": "Glyph of Backstab",
+    "description": "Your Backstab increases the duration of your Rupture effect on the target by $56800s1 sec, up to a maximum of $56800s2 additional sec."
+  },
+  {
+    "entry": 42957,
+    "spellId": 56818,
+    "name": "Glyph of Blade Flurry",
+    "description": "Reduces the energy cost of Blade Flurry by $56818s1%."
+  },
+  {
+    "entry": 42958,
+    "spellId": 56820,
+    "name": "Glyph of Crippling Poison",
+    "description": "Increases the chance to inflict your target with Crippling Poison by an additional $56820s1%."
+  },
+  {
+    "entry": 42959,
+    "spellId": 56806,
+    "name": "Glyph of Deadly Throw",
+    "description": "Increases the slowing effect on Deadly Throw by $56806s1%."
+  },
+  {
+    "entry": 42960,
+    "spellId": 56799,
+    "name": "Glyph of Evasion",
+    "description": "Increases the duration of Evasion by ${$56799m1/1000} sec."
+  },
+  {
+    "entry": 42961,
+    "spellId": 56802,
+    "name": "Glyph of Eviscerate",
+    "description": "Increases the critical strike chance of Eviscerate by $56802s1%."
+  },
+  {
+    "entry": 42962,
+    "spellId": 56803,
+    "name": "Glyph of Expose Armor",
+    "description": "Increases the duration of Expose Armor by ${$56803m1/1000} sec."
+  },
+  {
+    "entry": 42963,
+    "spellId": 56804,
+    "name": "Glyph of Feint",
+    "description": "Reduces the energy cost of Feint by $56804s1."
+  },
+  {
+    "entry": 42964,
+    "spellId": 56812,
+    "name": "Glyph of Garrote",
+    "description": "Reduces the duration of your Garrote ability by ${$56812m1/-1000} sec and increases the total damage it deals by 20%."
+  },
+  {
+    "entry": 42965,
+    "spellId": 56814,
+    "name": "Glyph of Ghostly Strike",
+    "description": "Increases the damage dealt by Ghostly Strike by $56814s2% and the duration of its effect by ${$56814m1/1000} sec., but increases its cooldown by ${$56814m3/1000} sec."
+  },
+  {
+    "entry": 42966,
+    "spellId": 56809,
+    "name": "Glyph of Gouge",
+    "description": "Reduces the energy cost of Gouge by $56809s1."
+  },
+  {
+    "entry": 42967,
+    "spellId": 56807,
+    "name": "Glyph of Hemorrhage",
+    "description": "Increases the damage bonus against targets afflicted by Hemorrhage by $56807s1%."
+  },
+  {
+    "entry": 42968,
+    "spellId": 56819,
+    "name": "Glyph of Preparation",
+    "description": "Your Preparation ability also instantly resets the cooldown of Blade Flurry, Dismantle, and Kick."
+  },
+  {
+    "entry": 42969,
+    "spellId": 56801,
+    "name": "Glyph of Rupture",
+    "description": "Increases the duration of Rupture by ${$56801m1/1000} sec."
+  },
+  {
+    "entry": 42970,
+    "spellId": 56798,
+    "name": "Glyph of Sap",
+    "description": "Increases the duration of Sap by ${$56798m1/1000} sec."
+  },
+  {
+    "entry": 42971,
+    "spellId": 56805,
+    "name": "Glyph of Vigor",
+    "description": "Vigor grants an additional $56805s1 maximum energy."
+  },
+  {
+    "entry": 42972,
+    "spellId": 56821,
+    "name": "Glyph of Sinister Strike",
+    "description": "Your Sinister Strike critical strikes have a $56821h% chance to add an additional combo point."
+  },
+  {
+    "entry": 42973,
+    "spellId": 56810,
+    "name": "Glyph of Slice and Dice",
+    "description": "Increases the duration of Slice and Dice by ${$56810m1/1000} sec."
+  },
+  {
+    "entry": 42974,
+    "spellId": 56811,
+    "name": "Glyph of Sprint",
+    "description": "Increases the movement speed of your Sprint ability by an additional $56811s1%."
+  },
+  {
+    "entry": 43316,
+    "spellId": 57856,
+    "name": "Glyph of Aquatic Form",
+    "description": "Increases your swim speed by $57856s1% while in Aquatic Form."
+  },
+  {
+    "entry": 43331,
+    "spellId": 57857,
+    "name": "Glyph of Unburdened Rebirth",
+    "description": "Your Rebirth spell no longer requires a reagent."
+  },
+  {
+    "entry": 43332,
+    "spellId": 57862,
+    "name": "Glyph of Thorns",
+    "description": "Increases the duration of your Thorns ability by $57862s1 min when cast on yourself."
+  },
+  {
+    "entry": 43334,
+    "spellId": 57858,
+    "name": "Glyph of Challenging Roar",
+    "description": "Reduces the cooldown of your Challenging Roar ability by ${$57858m1/-1000} sec."
+  },
+  {
+    "entry": 43335,
+    "spellId": 57855,
+    "name": "Glyph of the Wild",
+    "description": "Mana cost of your Mark of the Wild and Gift of the Wild spells reduced by $57855s1%."
+  },
+  {
+    "entry": 43337,
+    "spellId": 58133,
+    "name": "Deprecated Glyph of the Forest Lynx",
+    "description": "You appear as a forest lynx while in Cat Form."
+  },
+  {
+    "entry": 43338,
+    "spellId": 57866,
+    "name": "Glyph of Revive Pet",
+    "description": "Reduces the pushback suffered from damaging attacks while casting Revive Pet by $57866s1%."
+  },
+  {
+    "entry": 43339,
+    "spellId": 57924,
+    "name": "Glyph of Arcane Intellect",
+    "description": "Reduces the mana cost of your Arcane Intellect and Arcane Brilliance spells by $57924s1%."
+  },
+  {
+    "entry": 43340,
+    "spellId": 57958,
+    "name": "Glyph of Blessing of Might",
+    "description": "Increases the duration of your Blessing of Might spell by $57958s1 min when cast on yourself."
+  },
+  {
+    "entry": 43342,
+    "spellId": 57985,
+    "name": "Glyph of Fading",
+    "description": "Reduces the mana cost of your Fade spell by $57985s1%."
+  },
+  {
+    "entry": 43343,
+    "spellId": 58017,
+    "name": "Glyph of Pick Pocket",
+    "description": "Increases the range of your Pick Pocket ability by $58017s1 yards."
+  },
+  {
+    "entry": 43344,
+    "spellId": 58055,
+    "name": "Glyph of Water Breathing",
+    "description": "Your Water Breathing spell no longer requires a reagent."
+  },
+  {
+    "entry": 43350,
+    "spellId": 57870,
+    "name": "Glyph of Mend Pet",
+    "description": "Your Mend Pet spell increases your pet's happiness slightly."
+  },
+  {
+    "entry": 43351,
+    "spellId": 57903,
+    "name": "Glyph of Feign Death",
+    "description": "Reduces the cooldown of your Feign Death spell by ${$57903m1/-1000} sec."
+  },
+  {
+    "entry": 43354,
+    "spellId": 57900,
+    "name": "Glyph of Possessed Strength",
+    "description": "Increases the damage your pet inflicts while using Eyes of the Beast by $57900s1%."
+  },
+  {
+    "entry": 43355,
+    "spellId": 57904,
+    "name": "Glyph of the Pack",
+    "description": "Increases the range of your Aspect of the Pack ability by $57904s1 yards."
+  },
+  {
+    "entry": 43356,
+    "spellId": 57902,
+    "name": "Glyph of Scare Beast",
+    "description": "Reduces the pushback suffered from damaging attacks while casting Scare Beast by $57902s1%."
+  },
+  {
+    "entry": 43357,
+    "spellId": 57926,
+    "name": "Glyph of Fire Ward",
+    "description": "You have an additional $57926s1% chance to reflect Fire spells while your Fire Ward is active."
+  },
+  {
+    "entry": 43359,
+    "spellId": 57928,
+    "name": "Glyph of Frost Armor",
+    "description": "Increases the duration of your Frost Armor and Ice Armor spells by ${$57928m1/60000} min."
+  },
+  {
+    "entry": 43360,
+    "spellId": 57927,
+    "name": "Glyph of Frost Ward",
+    "description": "You have an additional $57927s1% chance to reflect Frost spells while your Frost Ward is active."
+  },
+  {
+    "entry": 43361,
+    "spellId": 52648,
+    "name": "Glyph of the Penguin",
+    "description": "Your Polymorph: Sheep spell polymorphs the target into a penguin instead."
+  },
+  {
+    "entry": 43362,
+    "spellId": 58136,
+    "name": "Glyph of the Bear Cub",
+    "description": "Your Polymorph: Sheep spell polymorphs the target into a polar bear cub instead."
+  },
+  {
+    "entry": 43364,
+    "spellId": 57925,
+    "name": "Glyph of Slow Fall",
+    "description": "Your Slow Fall spell no longer requires a reagent."
+  },
+  {
+    "entry": 43365,
+    "spellId": 57937,
+    "name": "Glyph of Blessing of Kings",
+    "description": "Reduces the mana cost of your Blessing of Kings and Greater Blessing of Kings spells by $57937s1%."
+  },
+  {
+    "entry": 43366,
+    "spellId": 57979,
+    "name": "Glyph of Blessing of Wisdom",
+    "description": "Increases the duration of your Blessing of Wisdom spell by $57979s1 min when cast on yourself."
+  },
+  {
+    "entry": 43367,
+    "spellId": 57955,
+    "name": "Glyph of Lay on Hands",
+    "description": "Reduces the cooldown of your Lay on Hands spell by ${$57955m1/-60000} min."
+  },
+  {
+    "entry": 43368,
+    "spellId": 57947,
+    "name": "Glyph of Sense Undead",
+    "description": "Damage against Undead increased by $57947s1% while your Sense Undead ability is active."
+  },
+  {
+    "entry": 43369,
+    "spellId": 57954,
+    "name": "Glyph of the Wise",
+    "description": "Reduces the mana cost of your Seal of Wisdom spell by $57954s1%."
+  },
+  {
+    "entry": 43370,
+    "spellId": 57987,
+    "name": "Glyph of Levitate",
+    "description": "Your Levitate spell no longer requires a reagent."
+  },
+  {
+    "entry": 43371,
+    "spellId": 58009,
+    "name": "Glyph of Fortitude",
+    "description": "Reduces the mana cost of your Power Word: Fortitude and Prayer of Fortitude spells by $58009s1%."
+  },
+  {
+    "entry": 43372,
+    "spellId": 58015,
+    "name": "Glyph of Shadow Protection",
+    "description": "Increases the duration of your Shadow Protection and Prayer of Shadow Protection spells by ${$58015m1/60000} min."
+  },
+  {
+    "entry": 43373,
+    "spellId": 57986,
+    "name": "Glyph of Shackle Undead",
+    "description": "Increases the range of your Shackle Undead spell by $57986s1 yards."
+  },
+  {
+    "entry": 43374,
+    "spellId": 58228,
+    "name": "Glyph of Shadowfiend",
+    "description": "Receive $58227s1% of your maximum mana if your Shadowfiend dies from damage."
+  },
+  {
+    "entry": 43376,
+    "spellId": 58032,
+    "name": "Glyph of Distract",
+    "description": "Increases the range of your Distract ability by $58032s1 yards."
+  },
+  {
+    "entry": 43377,
+    "spellId": 58027,
+    "name": "Glyph of Pick Lock",
+    "description": "Reduces the cast time of your Pick Lock ability by $58027s1%."
+  },
+  {
+    "entry": 43378,
+    "spellId": 58033,
+    "name": "Glyph of Safe Fall",
+    "description": "Increases the distance your Safe Fall ability allows you to fall without taking damage."
+  },
+  {
+    "entry": 43379,
+    "spellId": 58039,
+    "name": "Glyph of Blurred Speed",
+    "description": "Enables you to walk on water while your Sprint ability is active."
+  },
+  {
+    "entry": 43380,
+    "spellId": 58038,
+    "name": "Glyph of Vanish",
+    "description": "Increases your movement speed by $58038s1% while the Vanish effect is active."
+  },
+  {
+    "entry": 43381,
+    "spellId": 58058,
+    "name": "Glyph of Astral Recall",
+    "description": "Cooldown of your Astral Recall spell reduced by ${$58058m1/-60000}.1 min."
+  },
+  {
+    "entry": 43384,
+    "spellId": 58134,
+    "name": "Deprecated Glyph of the Black Wolf",
+    "description": "You appears as a black wolf when using your Ghost Wolf spell."
+  },
+  {
+    "entry": 43385,
+    "spellId": 58059,
+    "name": "Glyph of Renewed Life",
+    "description": "Your Reincarnation spell no longer requires a reagent."
+  },
+  {
+    "entry": 43386,
+    "spellId": 58063,
+    "name": "Glyph of Water Shield",
+    "description": "Increases the number of charges on your Water Shield spell by $58063s1."
+  },
+  {
+    "entry": 43388,
+    "spellId": 58057,
+    "name": "Glyph of Water Walking",
+    "description": "Your Water Walking spell no longer requires a reagent."
+  },
+  {
+    "entry": 43389,
+    "spellId": 58079,
+    "name": "Glyph of Unending Breath",
+    "description": "Increases the swim speed of targets affected by your Unending Breath spell by $58079s1%."
+  },
+  {
+    "entry": 43390,
+    "spellId": 58070,
+    "name": "Glyph of Drain Soul",
+    "description": "Your Drain Soul ability occasionally creates an additional soul shard."
+  },
+  {
+    "entry": 43391,
+    "spellId": 58081,
+    "name": "Glyph of Kilrogg",
+    "description": "Increases the movement speed of your Eye of Kilrogg by $58081s1% and allows it to fly in areas where flying mounts are enabled."
+  },
+  {
+    "entry": 43393,
+    "spellId": 58107,
+    "name": "Glyph of Enslave Demon",
+    "description": "Reduces the cast time of your Enslave Demon spell by $58107s1%."
+  },
+  {
+    "entry": 43394,
+    "spellId": 58094,
+    "name": "Glyph of Souls",
+    "description": "Reduces the mana cost of your Ritual of Souls spell by $58094s1%."
+  },
+  {
+    "entry": 43395,
+    "spellId": 58095,
+    "name": "Glyph of Battle",
+    "description": "Increases the duration of your Battle Shout ability by ${$58095m1/60000} min."
+  },
+  {
+    "entry": 43396,
+    "spellId": 58096,
+    "name": "Glyph of Bloodrage",
+    "description": "Reduces the health cost of your Bloodrage ability by $58096s1%."
+  },
+  {
+    "entry": 43397,
+    "spellId": 58097,
+    "name": "Glyph of Charge",
+    "description": "Increases the range of your Charge ability by $58097s1 yards."
+  },
+  {
+    "entry": 43398,
+    "spellId": 58099,
+    "name": "Glyph of Mocking Blow",
+    "description": "Increases the damage of your Mocking Blow ability by $58099s1%."
+  },
+  {
+    "entry": 43399,
+    "spellId": 58098,
+    "name": "Glyph of Thunder Clap",
+    "description": "Increases the radius of your Thunder Clap ability by $58098s1 yards."
+  },
+  {
+    "entry": 43400,
+    "spellId": 58104,
+    "name": "Glyph of Enduring Victory",
+    "description": "Increases the window of opportunity in which you can use Victory Rush by ${$58104m1/1000} sec."
+  },
+  {
+    "entry": 43412,
+    "spellId": 58369,
+    "name": "Glyph of Bloodthirst",
+    "description": "Increases the healing you receive from your Bloodthirst ability by $58369s1%."
+  },
+  {
+    "entry": 43413,
+    "spellId": 58355,
+    "name": "Glyph of Rapid Charge",
+    "description": "Reduces the cooldown of your Charge ability by $58355s1%."
+  },
+  {
+    "entry": 43414,
+    "spellId": 58366,
+    "name": "Glyph of Cleaving",
+    "description": "Increases the number of targets your Cleave hits by 1."
+  },
+  {
+    "entry": 43415,
+    "spellId": 58388,
+    "name": "Glyph of Devastate",
+    "description": "Your Devastate ability now applies two stacks of Sunder Armor."
+  },
+  {
+    "entry": 43416,
+    "spellId": 58367,
+    "name": "Glyph of Execution",
+    "description": "Your Execute ability deals damage as if you had $58367s1 additional rage."
+  },
+  {
+    "entry": 43417,
+    "spellId": 58372,
+    "name": "Glyph of Hamstring",
+    "description": "Gives your Hamstring ability a $58372h% chance to immobilize the target for $58373d."
+  },
+  {
+    "entry": 43418,
+    "spellId": 58357,
+    "name": "Glyph of Heroic Strike",
+    "description": "You gain ${$58357m1/10} rage when you critically strike with your Heroic Strike ability."
+  },
+  {
+    "entry": 43419,
+    "spellId": 58377,
+    "name": "Glyph of Intervene",
+    "description": "Increases the number attacks you intercept for your Intervene target by $58377s1."
+  },
+  {
+    "entry": 43420,
+    "spellId": 58365,
+    "name": "Glyph of Barbaric Insults",
+    "description": "Your Mocking Blow ability generates $58365s1% additional threat."
+  },
+  {
+    "entry": 43421,
+    "spellId": 58368,
+    "name": "Glyph of Mortal Strike",
+    "description": "Increases the damage of your Mortal Strike ability by $58368s2%."
+  },
+  {
+    "entry": 43422,
+    "spellId": 58386,
+    "name": "Glyph of Overpower",
+    "description": "Adds a $58386m1% chance to enable your Overpower when your attacks are parried."
+  },
+  {
+    "entry": 43423,
+    "spellId": 58385,
+    "name": "Glyph of Rending",
+    "description": "Increases the duration of your Rend ability by ${$58385m1/1000} sec."
+  },
+  {
+    "entry": 43424,
+    "spellId": 58364,
+    "name": "Glyph of Revenge",
+    "description": "After using Revenge, your next Heroic Strike costs no rage."
+  },
+  {
+    "entry": 43425,
+    "spellId": 58375,
+    "name": "Glyph of Blocking",
+    "description": "Increases your block value by $58374s1% for $58374d after using your Shield Slam ability."
+  },
+  {
+    "entry": 43426,
+    "spellId": 58376,
+    "name": "Glyph of Last Stand",
+    "description": "Reduces the cooldown of your Last Stand ability by ${$58376m1/-60000} min."
+  },
+  {
+    "entry": 43427,
+    "spellId": 58387,
+    "name": "Glyph of Sunder Armor",
+    "description": "Your Sunder Armor ability affects a second nearby target."
+  },
+  {
+    "entry": 43428,
+    "spellId": 58384,
+    "name": "Glyph of Sweeping Strikes",
+    "description": "Reduces the rage cost of your Sweeping Strikes ability by $58384s1%."
+  },
+  {
+    "entry": 43429,
+    "spellId": 58353,
+    "name": "Glyph of Taunt",
+    "description": "Increases the chance for your Taunt ability to succeed by $58353m1%."
+  },
+  {
+    "entry": 43430,
+    "spellId": 58356,
+    "name": "Glyph of Resonating Power",
+    "description": "Reduces the rage cost of your Thunder Clap ability by ${$58356m1/-10}."
+  },
+  {
+    "entry": 43431,
+    "spellId": 58382,
+    "name": "Glyph of Victory Rush",
+    "description": "Your Victory Rush ability has a $58382s1% increased critical strike chance."
+  },
+  {
+    "entry": 43432,
+    "spellId": 58370,
+    "name": "Glyph of Whirlwind",
+    "description": "Reduces the cooldown of your Whirlwind by ${$58370m1/-1000} sec."
+  },
+  {
+    "entry": 43533,
+    "spellId": 58623,
+    "name": "Glyph of Anti-Magic Shell",
+    "description": "Increases the duration of your Anti-Magic Shell by ${$58623m1/1000} sec."
+  },
+  {
+    "entry": 43534,
+    "spellId": 58616,
+    "name": "Glyph of Heart Strike",
+    "description": "Your Heart Strike also reduces the movement speed of your target by $58617s1% for $58617d."
+  },
+  {
+    "entry": 43535,
+    "spellId": 58640,
+    "name": "Glyph of Blood Tap",
+    "description": "Your Blood Tap no longer causes damage to you."
+  },
+  {
+    "entry": 43536,
+    "spellId": 58673,
+    "name": "Glyph of Bone Shield",
+    "description": "Adds $58673s1 additional $Lcharge:charges; to your Bone Shield."
+  },
+  {
+    "entry": 43537,
+    "spellId": 58620,
+    "name": "Glyph of Chains of Ice",
+    "description": "Your Chains of Ice also causes $58621s1 Frost damage, increased by your attack power."
+  },
+  {
+    "entry": 43538,
+    "spellId": 58613,
+    "name": "Glyph of Dark Command",
+    "description": "Increases the chance for your Dark Command ability to work successfully by $58613s1%."
+  },
+  {
+    "entry": 43539,
+    "spellId": 58677,
+    "name": "Glyph of Death's Embrace",
+    "description": "Your Death Coil refunds 20 runic power when used to heal."
+  },
+  {
+    "entry": 43541,
+    "spellId": 62259,
+    "name": "Glyph of Death Grip",
+    "description": "When you deal a killing blow that grants honor or experience, the cooldown of your Death Grip is refreshed."
+  },
+  {
+    "entry": 43542,
+    "spellId": 58629,
+    "name": "Glyph of Death and Decay",
+    "description": "Damage of your Death and Decay spell increased by $58629s1%."
+  },
+  {
+    "entry": 43543,
+    "spellId": 58647,
+    "name": "Glyph of Frost Strike",
+    "description": "Reduces the cost of your Frost Strike by ${$58647m1/-10} Runic Power."
+  },
+  {
+    "entry": 43544,
+    "spellId": 58680,
+    "name": "Glyph of Horn of Winter",
+    "description": "Increases the duration of your Horn of Winter ability by ${$58680m1/60000} min."
+  },
+  {
+    "entry": 43545,
+    "spellId": 58625,
+    "name": "Glyph of Icebound Fortitude",
+    "description": "Your Icebound Fortitude now always grants at least $58625s1% damage reduction, regardless of your defense skill."
+  },
+  {
+    "entry": 43546,
+    "spellId": 58631,
+    "name": "Glyph of Icy Touch",
+    "description": "Your Frost Fever disease deals $58631s1% additional damage."
+  },
+  {
+    "entry": 43547,
+    "spellId": 58671,
+    "name": "Glyph of Obliterate",
+    "description": "Increases the damage of your Obliterate ability by $m1%."
+  },
+  {
+    "entry": 43548,
+    "spellId": 58657,
+    "name": "Glyph of Plague Strike",
+    "description": "Your Plague Strike does $58657s1% additional damage."
+  },
+  {
+    "entry": 43549,
+    "spellId": 58686,
+    "name": "Glyph of the Ghoul",
+    "description": "Your Ghoul receives an additional $58686s1% of your Strength and $58686s1% of your Stamina."
+  },
+  {
+    "entry": 43550,
+    "spellId": 58669,
+    "name": "Glyph of Rune Strike",
+    "description": "Increases the critical strike chance of your Rune Strike by $58669s2%."
+  },
+  {
+    "entry": 43551,
+    "spellId": 58642,
+    "name": "Glyph of Scourge Strike",
+    "description": "Your Scourge Strike increases the duration of your diseases on the target by $58642m1 sec, up to a maximum of $58642m2 additional seconds."
+  },
+  {
+    "entry": 43552,
+    "spellId": 58618,
+    "name": "Glyph of Strangulate",
+    "description": "Reduces the cooldown of your Strangulate by ${$58618m1/-1000} sec."
+  },
+  {
+    "entry": 43553,
+    "spellId": 58635,
+    "name": "Glyph of Unbreakable Armor",
+    "description": "Increases the total armor granted by Unbreakable Armor to $58635m2%."
+  },
+  {
+    "entry": 43554,
+    "spellId": 58676,
+    "name": "Glyph of Vampiric Blood",
+    "description": "Increases  the duration of your Vampiric Blood by ${$58676m1/1000} sec."
+  },
+  {
+    "entry": 43671,
+    "spellId": 59307,
+    "name": "Glyph of Corpse Explosion",
+    "description": "Increases the radius of effect on Corpse Explosion by $59307s1 yards."
+  },
+  {
+    "entry": 43672,
+    "spellId": 59309,
+    "name": "Glyph of Pestilence",
+    "description": "Increases the radius of your Pestilence effect by $59309s1 yards."
+  },
+  {
+    "entry": 43673,
+    "spellId": 60200,
+    "name": "Glyph of Raise Dead",
+    "description": "Your Raise Dead spell no longer requires a reagent."
+  },
+  {
+    "entry": 43674,
+    "spellId": 59219,
+    "name": "Glyph of Dash",
+    "description": "Reduces the cooldown of your Dash ability by $59219s1%."
+  },
+  {
+    "entry": 43725,
+    "spellId": 59289,
+    "name": "Glyph of Ghost Wolf",
+    "description": "Your Ghost Wolf form regenerates an additional $59289s1% of your maximum health every 5 sec."
+  },
+  {
+    "entry": 43825,
+    "spellId": 59327,
+    "name": "Glyph of Rune Tap",
+    "description": "Your Rune Tap heals yourself for an additional 10% of the effect, and also heals your party for 10% of their maximum health."
+  },
+  {
+    "entry": 43826,
+    "spellId": 59332,
+    "name": "Glyph of Blood Strike",
+    "description": "Your Blood Strike causes an additional 20% damage to snared targets."
+  },
+  {
+    "entry": 43827,
+    "spellId": 59336,
+    "name": "Glyph of Death Strike",
+    "description": "Increases your Death Strike's damage by $59336s1% for every $59336s1 runic power you currently have (up to a maximum of $59336s2%).  The runic power is not consumed by this effect."
+  },
+  {
+    "entry": 43867,
+    "spellId": 56420,
+    "name": "Glyph of Holy Wrath",
+    "description": "Reduces the cooldown of your Holy Wrath spell by ${$56420m1/-1000} sec."
+  },
+  {
+    "entry": 43868,
+    "spellId": 56414,
+    "name": "Glyph of Seal of Righteousness",
+    "description": "Increases the damage done by Seal of Righteousness by $56414s1%."
+  },
+  {
+    "entry": 43869,
+    "spellId": 56416,
+    "name": "Glyph of Seal of Vengeance",
+    "description": "Your Seal of Vengeance or Seal of Corruption also grants $56416s1 expertise while active."
+  },
+  {
+    "entry": 44432,
+    "spellId": 58686,
+    "name": "Glyph of Raise Dead",
+    "description": "Your Raise Dead spell no longer requires a reagent."
+  },
+  {
+    "entry": 44684,
+    "spellId": 61205,
+    "name": "Glyph of Frostfire",
+    "description": "Increases the initial damage dealt by Frostfire Bolt by $61205s1% and its critical strike chance by $61205s2%."
+  },
+  {
+    "entry": 44920,
+    "spellId": 62126,
+    "name": "Glyph of Blast Wave",
+    "description": "The mana cost of your Blast Wave spell is reduced by $62126s1%, but it no longer knocks enemies back."
+  },
+  {
+    "entry": 44922,
+    "spellId": 62135,
+    "name": "Glyph of Typhoon",
+    "description": "Reduces the cost of your Typhoon spell by $62135s1% and increases its radius by $62135s2 yards, but it no longer knocks enemies back."
+  },
+  {
+    "entry": 44923,
+    "spellId": 62132,
+    "name": "Glyph of Thunderstorm",
+    "description": "Increases the mana you receive from your Thunderstorm spell by $62132s1%, but it no longer knocks enemies back."
+  },
+  {
+    "entry": 44928,
+    "spellId": 62080,
+    "name": "Glyph of Focus",
+    "description": "Increases the damage done by Starfall by $62080s2%, but decreases its radius by $62080s1%."
+  },
+  {
+    "entry": 44955,
+    "spellId": 62210,
+    "name": "Glyph of Arcane Blast",
+    "description": "Increases the damage from your Arcane Blast buff by $62210s1%."
+  },
+  {
+    "entry": 45601,
+    "spellId": 62969,
+    "name": "Glyph of Berserk",
+    "description": "Increases the duration of Berserk by ${$62969m1/1000} sec."
+  },
+  {
+    "entry": 45602,
+    "spellId": 62970,
+    "name": "Glyph of Wild Growth",
+    "description": "Wild Growth can affect $62970s1 additional target."
+  },
+  {
+    "entry": 45603,
+    "spellId": 62971,
+    "name": "Glyph of Nourish",
+    "description": "Your Nourish heals an additional $62971s1% for each of your heal over time effects present on the target."
+  },
+  {
+    "entry": 45604,
+    "spellId": 63055,
+    "name": "Glyph of Savage Roar",
+    "description": "Your Savage Roar ability grants an additional $63055s1% bonus damage done."
+  },
+  {
+    "entry": 45622,
+    "spellId": 63056,
+    "name": "Glyph of Monsoon",
+    "description": "Reduces the cooldown of your Typhoon spell by ${$63056m1/-1000} sec."
+  },
+  {
+    "entry": 45623,
+    "spellId": 63057,
+    "name": "Glyph of Barkskin",
+    "description": "Reduces the chance you'll be critically hit by melee attacks by $63057s1% while Barkskin is active."
+  },
+  {
+    "entry": 45625,
+    "spellId": 63065,
+    "name": "Glyph of Chimera Shot",
+    "description": "Reduces the cooldown of Chimera Shot by ${$63065m1/-1000} sec."
+  },
+  {
+    "entry": 45731,
+    "spellId": 63066,
+    "name": "Glyph of Explosive Shot",
+    "description": "Increases the critical strike chance of Explosive Shot by $63066s1%."
+  },
+  {
+    "entry": 45732,
+    "spellId": 63067,
+    "name": "Glyph of Kill Shot",
+    "description": "Reduces the cooldown of Kill Shot by ${$63067m1/-1000} sec."
+  },
+  {
+    "entry": 45733,
+    "spellId": 63068,
+    "name": "Glyph of Explosive Trap",
+    "description": "The periodic damage from your Explosive Trap can now be critical strikes."
+  },
+  {
+    "entry": 45734,
+    "spellId": 63069,
+    "name": "Glyph of Scatter Shot",
+    "description": "Increases the range of Scatter Shot by $63069s1 yards."
+  },
+  {
+    "entry": 45735,
+    "spellId": 63086,
+    "name": "Glyph of Raptor Strike",
+    "description": "Reduces damage taken by $63087s1% for $63087d after using Raptor Strike."
+  },
+  {
+    "entry": 45736,
+    "spellId": 63090,
+    "name": "Glyph of Deep Freeze",
+    "description": "Increases the range of Deep Freeze by $63090s1 yards."
+  },
+  {
+    "entry": 45737,
+    "spellId": 63091,
+    "name": "Glyph of Living Bomb",
+    "description": "The periodic damage from your Living Bomb can now be critical strikes."
+  },
+  {
+    "entry": 45738,
+    "spellId": 63092,
+    "name": "Glyph of Arcane Barrage",
+    "description": "Reduces the mana cost of Arcane Barrage by $63092s1%."
+  },
+  {
+    "entry": 45739,
+    "spellId": 63093,
+    "name": "Glyph of Mirror Image",
+    "description": "Your Mirror Image spell now creates a 4th copy."
+  },
+  {
+    "entry": 45740,
+    "spellId": 63095,
+    "name": "Glyph of Ice Barrier",
+    "description": "Increases the amount of damage absorbed by your Ice Barrier by $63095s1%."
+  },
+  {
+    "entry": 45741,
+    "spellId": 63218,
+    "name": "Glyph of Beacon of Light",
+    "description": "Increases the duration of Beacon of Light by ${$63218m1/1000} sec."
+  },
+  {
+    "entry": 45742,
+    "spellId": 63219,
+    "name": "Glyph of Hammer of the Righteous",
+    "description": "Your Hammer of the Righteous hits $63219s1 additional target."
+  },
+  {
+    "entry": 45743,
+    "spellId": 63220,
+    "name": "Glyph of Divine Storm",
+    "description": "Your Divine Storm now heals for an additional $63220s1% of the damage it causes."
+  },
+  {
+    "entry": 45744,
+    "spellId": 63222,
+    "name": "Glyph of Shield of Righteousness",
+    "description": "Reduces the mana cost of Shield of Righteousness by $63222s1%."
+  },
+  {
+    "entry": 45745,
+    "spellId": 63223,
+    "name": "Glyph of Divine Plea",
+    "description": "While Divine Plea is active, you take $63223s1% reduced damage from all sources."
+  },
+  {
+    "entry": 45746,
+    "spellId": 63224,
+    "name": "Glyph of Holy Shock",
+    "description": "Reduces the cooldown of Holy Shock by ${$63224m1/-1000} sec."
+  },
+  {
+    "entry": 45747,
+    "spellId": 63225,
+    "name": "Glyph of Salvation",
+    "description": "When you cast Hand of Salvation on yourself, it also reduces damage taken by $63225s1%."
+  },
+  {
+    "entry": 45753,
+    "spellId": 63229,
+    "name": "Glyph of Dispersion",
+    "description": "Reduces the cooldown on Dispersion by ${$63229m1/-1000} sec."
+  },
+  {
+    "entry": 45755,
+    "spellId": 63231,
+    "name": "Glyph of Guardian Spirit",
+    "description": "If your Guardian Spirit lasts its entire duration without being triggered, the cooldown is reset to ${$63231m1/60} min."
+  },
+  {
+    "entry": 45756,
+    "spellId": 63235,
+    "name": "Glyph of Penance",
+    "description": "Reduces the cooldown of Penance by ${$63235m1/-1000} sec."
+  },
+  {
+    "entry": 45757,
+    "spellId": 63237,
+    "name": "Glyph of Mind Sear",
+    "description": "Increases the radius of effect on Mind Sear by $63237s1 yards."
+  },
+  {
+    "entry": 45758,
+    "spellId": 63246,
+    "name": "Glyph of Hymn of Hope",
+    "description": "Your Hymn of Hope lasts an additional ${$63246m1/1000} sec."
+  },
+  {
+    "entry": 45760,
+    "spellId": 63248,
+    "name": "Glyph of Pain Suppression",
+    "description": "Allows Pain Suppression to be cast while stunned."
+  },
+  {
+    "entry": 45761,
+    "spellId": 63249,
+    "name": "Glyph of Hunger for Blood",
+    "description": "Increases the bonus damage from Hunger For Blood by $63249s1%."
+  },
+  {
+    "entry": 45762,
+    "spellId": 63252,
+    "name": "Glyph of Killing Spree",
+    "description": "Reduces the cooldown on Killing Spree by ${$63252m1/-1000} sec."
+  },
+  {
+    "entry": 45764,
+    "spellId": 63253,
+    "name": "Glyph of Shadow Dance",
+    "description": "Increases the duration of Shadow Dance by ${$63253m1/1000} sec."
+  },
+  {
+    "entry": 45766,
+    "spellId": 63254,
+    "name": "Glyph of Fan of Knives",
+    "description": "Increases the damage done by Fan of Knives by $63254s1%."
+  },
+  {
+    "entry": 45767,
+    "spellId": 63256,
+    "name": "Glyph of Tricks of the Trade",
+    "description": "The bonus damage and threat redirection granted by your Tricks of the Trade ability lasts an additional ${$63256m1/1000} sec."
+  },
+  {
+    "entry": 45768,
+    "spellId": 63268,
+    "name": "Glyph of Mutilate",
+    "description": "Reduces the cost of Mutilate by $63268s1 energy."
+  },
+  {
+    "entry": 45769,
+    "spellId": 63269,
+    "name": "Glyph of Cloak of Shadows",
+    "description": "While Cloak of Shadows is active, you take $63269s1% less physical damage."
+  },
+  {
+    "entry": 45770,
+    "spellId": 63270,
+    "name": "Glyph of Thunder",
+    "description": "Reduces the cooldown on Thunderstorm by ${$63270m1/-1000} sec."
+  },
+  {
+    "entry": 45771,
+    "spellId": 63271,
+    "name": "Glyph of Feral Spirit",
+    "description": "Your spirit wolves gain an additional $63271s1% of your attack power."
+  },
+  {
+    "entry": 45772,
+    "spellId": 63273,
+    "name": "Glyph of Riptide",
+    "description": "Increases the duration of Riptide by ${$63273m1/1000} sec."
+  },
+  {
+    "entry": 45775,
+    "spellId": 63279,
+    "name": "Glyph of Earth Shield",
+    "description": "Increases the amount healed by your Earth Shield by $63279s1%."
+  },
+  {
+    "entry": 45776,
+    "spellId": 63280,
+    "name": "Glyph of Totem of Wrath",
+    "description": "When you cast Totem of Wrath, you gain $63280s1% of the totem's bonus spell power for $63283d."
+  },
+  {
+    "entry": 45777,
+    "spellId": 63291,
+    "name": "Glyph of Hex",
+    "description": "Increases the damage your Hex target can take before the Hex effect is removed by $63291s1%."
+  },
+  {
+    "entry": 45778,
+    "spellId": 63298,
+    "name": "Glyph of Stoneclaw Totem",
+    "description": "Your Stoneclaw Totem also places a damage absorb shield on you, equal to $63298s1 times the strength of the shield it places on your totems."
+  },
+  {
+    "entry": 45779,
+    "spellId": 63302,
+    "name": "Glyph of Haunt",
+    "description": "The bonus damage granted by your Haunt spell is increased by an additional $63302s1%."
+  },
+  {
+    "entry": 45780,
+    "spellId": 63303,
+    "name": "Glyph of Metamorphosis",
+    "description": "Increases the duration of your Metamorphosis by ${$63303m1/1000} sec."
+  },
+  {
+    "entry": 45781,
+    "spellId": 63304,
+    "name": "Glyph of Chaos Bolt",
+    "description": "Reduces the cooldown on Chaos Bolt by ${$63304m1/-1000} sec."
+  },
+  {
+    "entry": 45782,
+    "spellId": 63309,
+    "name": "Glyph of Demonic Circle",
+    "description": "Reduces the cooldown on Demonic Circle by ${$63309m1/-1000} sec."
+  },
+  {
+    "entry": 45783,
+    "spellId": 63310,
+    "name": "Glyph of Shadowflame",
+    "description": "Your Shadowflame also applies a $63310s1% movement speed slow on its victims."
+  },
+  {
+    "entry": 45785,
+    "spellId": 63320,
+    "name": "Glyph of Life Tap",
+    "description": "When you use Life Tap or Dark Pact, you gain $63321s1% of your Spirit as spell power for $63321d."
+  },
+  {
+    "entry": 45789,
+    "spellId": 63312,
+    "name": "Glyph of Soul Link",
+    "description": "Increases the percentage of damage shared via your Soul Link by an additional $63312s1%."
+  },
+  {
+    "entry": 45790,
+    "spellId": 63324,
+    "name": "Glyph of Bladestorm",
+    "description": "Reduces the cooldown on Bladestorm by ${$63324m1/-1000} sec."
+  },
+  {
+    "entry": 45792,
+    "spellId": 63325,
+    "name": "Glyph of Shockwave",
+    "description": "Reduces the cooldown on Shockwave by ${$63325m1/-1000} sec."
+  },
+  {
+    "entry": 45793,
+    "spellId": 63326,
+    "name": "Glyph of Vigilance",
+    "description": "Your Vigilance ability transfers an additional $63326s1% of your target's threat to you."
+  },
+  {
+    "entry": 45794,
+    "spellId": 63327,
+    "name": "Glyph of Enraged Regeneration",
+    "description": "Your Enraged Regeneration ability heals for an additional ${$63327m1*10}% of your health over its duration."
+  },
+  {
+    "entry": 45795,
+    "spellId": 63328,
+    "name": "Glyph of Spell Reflection",
+    "description": "Reduces the cooldown on Spell Reflection by ${$63328m1/-1000} sec."
+  },
+  {
+    "entry": 45797,
+    "spellId": 63329,
+    "name": "Glyph of Shield Wall",
+    "description": "Reduces the cooldown on Shield Wall by ${$63329m1/-60000} min, but Shield Wall now only reduces damage taken by ${60-$63329m2}%."
+  },
+  {
+    "entry": 45799,
+    "spellId": 63330,
+    "name": "Glyph of Dancing Rune Weapon",
+    "description": "Increases the duration of Dancing Rune Weapon by ${$63330m1/1000} sec."
+  },
+  {
+    "entry": 45800,
+    "spellId": 63331,
+    "name": "Glyph of Hungering Cold",
+    "description": "Reduces the cost of Hungering Cold by ${$63331m1/-10} runic power."
+  },
+  {
+    "entry": 45803,
+    "spellId": 63332,
+    "name": "Glyph of Unholy Blight",
+    "description": "Increases the damage done by Unholy Blight by $63332s1%."
+  },
+  {
+    "entry": 45804,
+    "spellId": 63333,
+    "name": "Glyph of Dark Death",
+    "description": "Increases the damage or healing done by Death Coil by $63333s1%."
+  },
+  {
+    "entry": 45805,
+    "spellId": 63334,
+    "name": "Glyph of Disease",
+    "description": "Your Pestilence ability now refreshes disease durations and secondary effects of diseases on your primary target back to their maximum duration."
+  },
+  {
+    "entry": 45806,
+    "spellId": 63335,
+    "name": "Glyph of Howling Blast",
+    "description": "Your Howling Blast ability now infects your targets with Frost Fever."
+  },
+  {
+    "entry": 45908,
+    "spellId": 64199,
+    "name": "Glyph of Envenom",
+    "description": "Your Envenom ability no longer consumes Deadly Poison from your target."
+  },
+  {
+    "entry": 46372,
+    "spellId": 65243,
+    "name": "Glyph of Survival Instincts",
+    "description": "Your Survival Instincts ability grants an additional $65243s1% of your maximum health."
+  },
+  {
+    "entry": 48720,
+    "spellId": 67598,
+    "name": "Glyph of Claw",
+    "description": "Reduces the energy cost of your Claw ability by $67598s1."
+  },
+  {
+    "entry": 49084,
+    "spellId": 68164,
+    "name": "Glyph of Command",
+    "description": "Increases the duration of your Commanding Shout ability by ${$68164m1/60000} min."
+  },
+  {
+    "entry": 50045,
+    "spellId": 70937,
+    "name": "Glyph of Eternal Water",
+    "description": "Your Summon Water Elemental now lasts indefinitely, but your Water Elemental can no longer cast Freeze."
+  },
+  {
+    "entry": 50077,
+    "spellId": 70947,
+    "name": "Glyph of Quick Decay",
+    "description": "Your haste now reduces the time between periodic damage ticks of your Corruption spell."
+  },
+  {
+    "entry": 50125,
+    "spellId": 71013,
+    "name": "Glyph of Rapid Rejuvenation",
+    "description": "Your haste now reduces the time between the periodic healing ticks of your Rejuvenation spell."
+  }
+]

@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { CharacterInfoController } from './characterinfo.controller';
-import { CharacterInfoService } from './characterinfo.service';
+import { Module } from "@nestjs/common"
+import { CharacterInfoService } from "./characterinfo.service"
 
 @Module({
-  providers: [CharacterInfoService, CharacterInfoController],
+  providers: [CharacterInfoService],
+  exports: [CharacterInfoService]
 })
 export class CharacterInfoModule {}

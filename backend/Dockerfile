@@ -1,5 +1,5 @@
 FROM node:17-alpine as deps
-RUN apk update 
+RUN apk update
 WORKDIR /usr/backend
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile

@@ -1,373 +1,495 @@
-import { Injectable } from '@nestjs/common';
-import { Browser, Page } from 'puppeteer';
-import puppeteer from 'puppeteer-extra';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker';
-import { Item } from '../../types/item';
-import { SpellItemEnchantments } from './dbc';
+import { Injectable } from "@nestjs/common"
+import { Classes } from "@type/classes"
+import { DBItem, Item } from "@type/item"
+import { JSDOM } from "jsdom"
+import fetch from "node-fetch"
+import * as asyncFs from "fs/promises"
+import { dirname } from "path"
+import { Gem } from "@type/gems"
+import { Enchant } from "@type/enchants"
+import { AchievementsDB } from "@type/achievements"
+import { Glyph } from "@type/glyphs"
+import { ClassSpecs, Specs } from "@type/class-specs"
+const appDir = dirname(require.main.filename)
 
 @Injectable()
 export class CharacterInfoService {
-  page: Page;
-  browser: Browser;
+  gems: Gem[]
+  enchants: Enchant[]
+  items: DBItem[]
+  achievements: AchievementsDB
+  glyphs: Glyph[]
+
   constructor() {
-    puppeteer.use(StealthPlugin());
-    puppeteer.use(
-      AdblockerPlugin({
-        blockTrackers: true,
-      }),
-    );
+    this.loadGlyphsDB()
+    this.loadAchievementsDB()
+    this.loadGemsDB()
+    this.loadEnchantsDB()
+    this.loadItemsDB()
   }
 
-  async init() {
-    this.browser = await puppeteer.launch({
-      headless: true,
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '-disable-infobars',
-        '--ignore-certificate-errors',
-        '--ignore-certificate-errors-spki-list',
-        '--window-size=784,600',
-        '--disable-web-security',
-      ],
-    });
+  async loadGlyphsDB() {
+    this.glyphs = JSON.parse((await asyncFs.readFile(`${appDir}/../data/glyphs.json`)).toString())
+  }
 
-    this.page = (await this.browser.pages())[0];
+  async loadAchievementsDB() {
+    this.achievements = JSON.parse(
+      (await asyncFs.readFile(`${appDir}/../data/achievements.json`)).toString()
+    )
+  }
+
+  async loadGemsDB() {
+    this.gems = JSON.parse((await asyncFs.readFile(`${appDir}/../data/gems.json`)).toString())
+  }
+
+  async loadEnchantsDB() {
+    this.enchants = JSON.parse(
+      (await asyncFs.readFile(`${appDir}/../data/enchants.json`)).toString()
+    )
+  }
+
+  async loadItemsDB() {
+    this.items = JSON.parse(
+      (
+        await asyncFs.readFile(`${appDir}/../data/weapons_armors_glyphs_gems_enchants.json`)
+      ).toString()
+    )
   }
 
   public async getCharacterInfo(name: string) {
-    try {
-      await this.page.goto(
-        `http://armory.warmane.com/character/${name}/Icecrown/profile`,
-        { waitUntil: 'networkidle0', timeout: 0 },
-      );
-    } catch (error) {
-      console.log(error);
+    const profilePage = await fetch(`http://armory.warmane.com/character/${name}/Icecrown/profile`)
+      .then((res) => res.text())
+      .then((htmlStr: string) => new JSDOM(htmlStr).window.document)
+
+    const classText = profilePage
+      .querySelector<HTMLDivElement>(".level-race-class")
+      .textContent.replace("Level ", "")
+      .replace(/\d/g, "")
+      .trim()
+      .replace(", Icecrown", "")
+      .toLowerCase()
+
+    let classId: Classes = Classes.unknown
+
+    if (classText.includes(Classes[Classes.warrior])) {
+      classId = Classes.warrior
+    } else if (classText.includes(Classes[Classes.paladin])) {
+      classId = Classes.paladin
+    } else if (classText.includes(Classes[Classes.hunter])) {
+      classId = Classes.hunter
+    } else if (classText.includes(Classes[Classes.rogue])) {
+      classId = Classes.rogue
+    } else if (classText.includes(Classes[Classes.priest])) {
+      classId = Classes.priest
+    } else if (classText.includes("death knight")) {
+      classId = Classes.deathknight
+    } else if (classText.includes(Classes[Classes.shaman])) {
+      classId = Classes.shaman
+    } else if (classText.includes(Classes[Classes.mage])) {
+      classId = Classes.mage
+    } else if (classText.includes(Classes[Classes.warlock])) {
+      classId = Classes.warlock
+    } else if (classText.includes(Classes[Classes.druid])) {
+      classId = Classes.druid
     }
 
-    const items: Item[] = await this.page.$$eval(
-      '.item-model .item-slot a',
-      (anchorEl: any[], enchantDBC) => {
-        return anchorEl
-          .map((a, index: number) => {
-            if (!a.rel) {
-              return null;
+    const items = [...profilePage.querySelectorAll<HTMLAnchorElement>(".item-model .item-slot a")]
+      // Filter tabard and shirt
+      .filter((_, index) => index !== 5 && index !== 6)
+      .map((anchorNode: HTMLAnchorElement) => {
+        const returnObj: Item = { item: null, gems: null, enchant: null }
+        const splittedItemStr = anchorNode.rel.split("&")
+
+        if (splittedItemStr[0]?.includes("item")) {
+          const itemId = parseInt(splittedItemStr[0].replace("item=", ""))
+          const item = this.items.find((item) => item.entry === itemId)
+
+          if (item) {
+            const {
+              entry,
+              name,
+              ItemLevel: itemLevel,
+              class: itemClass,
+              subclass: itemSubClass,
+              Quality: quality,
+              InventoryType: inventoryType,
+              StatsCount: statsCount,
+              stat_type1: statType1,
+              stat_value1: statValue1,
+              stat_type2: statType2,
+              stat_value2: statValue2,
+              stat_type3: statType3,
+              stat_value3: statValue3,
+              stat_type4: statType4,
+              stat_value4: statValue4,
+              stat_type5: statType5,
+              stat_value5: statValue5,
+              stat_type6: statType6,
+              stat_value6: statValue6,
+              stat_type7: statType7,
+              stat_value7: statValue7,
+              stat_type8: statType8,
+              stat_value8: statValue8,
+              stat_type9: statType9,
+              stat_value9: statValue9,
+              stat_type10: statType10,
+              stat_value10: statValue10,
+              dmg_min1: dmgMin1,
+              dmg_max1: dmgMax1,
+              dmg_type1: dmgType1,
+              dmg_min2: dmgMin2,
+              dmg_max2: dmgMax2,
+              dmg_type2: dmgType2,
+              armor,
+              holy_res: holyRes,
+              fire_res: fireRes,
+              nature_res: natureRes,
+              frost_res: frostRes,
+              shadow_res: shadowRes,
+              arcane_res: arcaneRes,
+              Material: material,
+              block,
+              itemset,
+              socketColor_1: socketColor1,
+              socketContent_1: socketContent1,
+              socketColor_2: socketColor2,
+              socketContent_2: socketContent2,
+              socketColor_3: socketColor3,
+              socketContent_3: socketContent3,
+              socketBonus
+            } = item
+            returnObj.item = {
+              entry,
+              name,
+              itemClass,
+              itemSubClass,
+              quality,
+              inventoryType,
+              itemLevel,
+              statsCount,
+              statType1,
+              statValue1,
+              statType2,
+              statValue2,
+              statType3,
+              statValue3,
+              statType4,
+              statValue4,
+              statType5,
+              statValue5,
+              statType6,
+              statValue6,
+              statType7,
+              statValue7,
+              statType8,
+              statValue8,
+              statType9,
+              statValue9,
+              statType10,
+              statValue10,
+              dmgMin1,
+              dmgMax1,
+              dmgType1,
+              dmgMin2,
+              dmgMax2,
+              dmgType2,
+              armor,
+              holyRes,
+              fireRes,
+              natureRes,
+              frostRes,
+              shadowRes,
+              arcaneRes,
+              material,
+              block,
+              itemset,
+              socketColor1,
+              socketContent1,
+              socketColor2,
+              socketContent2,
+              socketColor3,
+              socketContent3,
+              socketBonus
             }
+          } else {
+            returnObj.item = null
+          }
+        }
 
-            const returnObj: Item = { slot: 0, item: 0 };
-            switch (index) {
-              case 0: {
-                returnObj.slot = 0;
-                break;
-              }
-              case 1: {
-                returnObj.slot = 1;
-                break;
-              }
-              case 2: {
-                returnObj.slot = 2;
-                break;
-              }
-              case 3: {
-                returnObj.slot = 14;
-                break;
-              }
-              case 4: {
-                returnObj.slot = 4;
-                break;
-              }
-              case 5: {
-                returnObj.slot = 3;
-                break;
-              }
-              case 6: {
-                returnObj.slot = 18;
-                break;
-              }
-              case 7: {
-                returnObj.slot = 8;
-                break;
-              }
-              case 8: {
-                returnObj.slot = 9;
-                break;
-              }
-              case 9: {
-                returnObj.slot = 5;
-                break;
-              }
-              case 10: {
-                returnObj.slot = 6;
-                break;
-              }
-              case 11: {
-                returnObj.slot = 7;
-                break;
-              }
-              case 12: {
-                returnObj.slot = 10;
-                break;
-              }
-              case 13: {
-                returnObj.slot = 11;
-                break;
-              }
-              case 14: {
-                returnObj.slot = 12;
-                break;
-              }
-              case 15: {
-                returnObj.slot = 13;
-                break;
-              }
-              case 16: {
-                returnObj.slot = 15;
-                break;
-              }
-              case 17: {
-                returnObj.slot = 16;
-                break;
-              }
-              case 18: {
-                returnObj.slot = 17;
-                break;
-              }
-            }
+        if (splittedItemStr[1]?.includes("ench")) {
+          const enchantId = parseInt(splittedItemStr[1].replace("ench=", ""))
+          returnObj.enchant =
+            this.enchants.find((enchant) => enchant.enchantId === enchantId) ?? null
+        }
 
-            const splittedItemStr = a.rel.split('&');
-            for (let i = 0; i < splittedItemStr.length; i++) {
-              if (splittedItemStr[i].includes('item')) {
-                returnObj.item = parseInt(
-                  splittedItemStr[i].replace('item=', ''),
-                );
-                continue;
-              }
+        if (splittedItemStr[2]?.includes("ench")) {
+          returnObj.gems = splittedItemStr[2]
+            .replace("gems=", "")
+            .split(":")
+            .map((gemId: string) =>
+              this.gems.find((gem) => gem.gemEnchantId === parseInt(gemId) ?? null)
+            )
+            .filter((gem) => gem !== null)
+        }
 
-              if (splittedItemStr[i].includes('ench')) {
-                returnObj.enchant = parseInt(
-                  splittedItemStr[i].replace('ench=', ''),
-                );
-                continue;
-              }
-
-              if (splittedItemStr[i].includes('gems')) {
-                returnObj.gems = splittedItemStr[i]
-                  .replace('gems=', '')
-                  .split(':')
-                  .map((x: string) => enchantDBC[x])
-                  .filter((x: number | null) => !!x);
-                continue;
-              }
-            }
-            return returnObj;
-          })
-          .filter((item) => item !== null);
-      },
-      SpellItemEnchantments,
-    );
-
-    try {
-      await this.page.goto(
-        `http://armory.warmane.com/character/${name}/Icecrown/achievements`,
-        { waitUntil: 'networkidle0', timeout: 0 },
-      );
-    } catch (error) {
-      console.log(error);
-    }
+        return returnObj
+      })
 
     const dungeonAndRaidsCategory = [
-      '14808',
-      '14805',
-      '14806',
-      '14921',
-      '14922',
-      '14923',
-      '14961',
-      '14962',
-      '15001',
-      '15002',
-      '15041',
-      '15042',
-    ];
+      "14808",
+      "14805",
+      "14806",
+      "14921",
+      "14922",
+      "14923",
+      "14961",
+      "14962",
+      "15001",
+      "15002",
+      "15041",
+      "15042"
+    ]
 
-    const achievements: string[] = [];
+    const achievements: number[] = []
 
-    await this.page.click(`a[data-category="${168}"]`);
     for (let i = 0; i < dungeonAndRaidsCategory.length; i++) {
-      const categoryId = dungeonAndRaidsCategory[i];
-      await this.page.click(`a[data-subcategory="${categoryId}"]`);
-
-      const achievements: string[] = await this.page.$$eval(
-        '.achievement',
-        (divs: HTMLDivElement[]) => {
-          return divs.map((div) => div.id.replace('ach', ''));
-        },
-      );
-
-      achievements.push(...achievements);
-    }
-
-    try {
-      await this.page.goto(
-        `http://armory.warmane.com/character/${name}/Icecrown/talents`,
-        { waitUntil: 'networkidle0', timeout: 0 },
-      );
-    } catch (error) {
-      console.log(error);
-    }
-
-    const talents: {
-      primary: number[];
-      secondary?: number[];
-    } = { primary: [] };
-    const glyphs: {
-      primary: { minor: number[]; major: number[] };
-      secondary?: { minor: number[]; major: number[] };
-    } = {
-      primary: {
-        minor: [],
-        major: [],
-      },
-    };
-
-    const { activeTalentGroupId, talentCount }: any = await this.page
-      .$$eval('#character-sheet .talent-spec-switch td a', (divEl: any) => {
-        let activeTalentGroupId = 0;
-
-        if (divEl[0].parentElement.className === 'selected') {
-          activeTalentGroupId = 0;
+      const subAchievementPage = await fetch(
+        `http://armory.warmane.com/character/${name}/Icecrown/achievements`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          },
+          body: new URLSearchParams({
+            category: dungeonAndRaidsCategory[i]
+          })
         }
+      )
+        .then((res) => res.json())
+        .then(
+          (resObj: { content: string }) =>
+            new JSDOM(`<html><head></head><body>${resObj.content}</body></html>`).window.document
+        )
 
-        if (divEl[1].parentElement.className === 'selected') {
-          activeTalentGroupId = 1;
-        }
-
-        return {
-          activeTalentGroupId,
-          talentCount: divEl.length,
-        };
+      const subAchievements = [
+        ...subAchievementPage.querySelectorAll<HTMLDivElement>(".achievement")
+      ].map((achievementDiv: HTMLDivElement) => {
+        const achievementId = parseInt(achievementDiv.id.replace("ach", ""))
+        // return {
+        //   id: achievementId,
+        //   name: this.achievements[achievementId]
+        // }
+        return achievementId
       })
-      .catch(() => {
-        return {
-          activeTalentGroupId: 0,
-          talentCount: 1,
-        };
-      });
 
-    if (talentCount === 1) {
-      const primaryTalents: number[] = await this.page.$$eval(
-        `#spec-${0} a.talent`,
-        (anchors: any) => {
-          return anchors
-            .filter(
-              (x: any) => x.style.backgroundImage.includes('bwicons') === false,
-            )
-            .map((x: any) => parseInt(x.href.replace(/\D/g, '')));
-        },
-      );
-
-      talents.primary = primaryTalents;
-
-      const primaryTalentMajorGlyph = await this.page.$$eval(
-        `div[data-glyphs="${0}"] .glyph.major a`,
-        (anchors: any) => {
-          return anchors.map((anchor: any) =>
-            parseInt(anchor.href.replace(/\D/g, '')),
-          );
-        },
-      );
-
-      glyphs.primary.major = primaryTalentMajorGlyph;
-
-      const primaryTalentMinorGlyph: number[] = await this.page.$$eval(
-        `div[data-glyphs="${0}"] .glyph.minor a`,
-        (anchors: any) => {
-          return anchors.map((anchor: any) =>
-            parseInt(anchor.href.replace(/\D/g, '')),
-          );
-        },
-      );
-
-      glyphs.primary.minor = primaryTalentMinorGlyph;
-    } else if (talentCount === 2) {
-      const primaryTalents: number[] = await this.page.$$eval(
-        `#spec-${0} a.talent`,
-        (anchors: any) => {
-          return anchors
-            .filter(
-              (x: any) => x.style.backgroundImage.includes('bwicons') === false,
-            )
-            .map((x: any) => parseInt(x.href.replace(/\D/g, '')));
-        },
-      );
-
-      talents.primary = primaryTalents;
-
-      const primaryTalentMajorGlyph: number[] = await this.page.$$eval(
-        `div[data-glyphs="${0}"] .glyph.major a`,
-        (anchors: any) => {
-          return anchors.map((anchor: any) =>
-            parseInt(anchor.href.replace(/\D/g, '')),
-          );
-        },
-      );
-
-      glyphs.primary.major = primaryTalentMajorGlyph;
-
-      const primaryTalentMinorGlyph: number[] = await this.page.$$eval(
-        `div[data-glyphs="${0}"] .glyph.minor a`,
-        (anchors: any) => {
-          return anchors.map((anchor: any) =>
-            parseInt(anchor.href.replace(/\D/g, '')),
-          );
-        },
-      );
-
-      glyphs.primary.minor = primaryTalentMinorGlyph;
-
-      const secondaryTalents: number[] = await this.page.$$eval(
-        `#spec-${1} a.talent`,
-        (anchors: any) => {
-          return anchors
-            .filter(
-              (x: any) => x.style.backgroundImage.includes('bwicons') === false,
-            )
-            .map((x: any) => parseInt(x.href.replace(/\D/g, '')));
-        },
-      );
-
-      talents.secondary = secondaryTalents;
-
-      const secondaryTalentMajorGlyph: number[] = await this.page.$$eval(
-        `div[data-glyphs="${1}"] .glyph.major a`,
-        (anchors: any) => {
-          return anchors.map((anchor: any) =>
-            parseInt(anchor.href.replace(/\D/g, '')),
-          );
-        },
-      );
-
-      glyphs.secondary.major = secondaryTalentMajorGlyph;
-
-      const secondaryTalentMinorGlyph: number[] = await this.page.$$eval(
-        `div[data-glyphs="${1}"] .glyph.minor a`,
-        (anchors: any) => {
-          return anchors.map((anchor: any) =>
-            parseInt(anchor.href.replace(/\D/g, '')),
-          );
-        },
-      );
-
-      glyphs.secondary.minor = secondaryTalentMinorGlyph;
+      achievements.push(...subAchievements)
     }
+
+    const primaryTalentPage = await fetch(
+      `http://armory.warmane.com/character/${name}/Icecrown/talents`
+    )
+      .then((res) => res.text())
+      .then((htmlStr: string) => new JSDOM(htmlStr).window.document)
+
+    let primaryTalentsSpecId: Specs | null = null
+    let primaryTalents: number[] | null = [
+      ...primaryTalentPage.querySelectorAll<HTMLAnchorElement>("#spec-0 a.talent")
+    ]
+      .filter(
+        (anchorNode: HTMLAnchorElement) =>
+          anchorNode.style.backgroundImage.includes("bwicons") === false
+      )
+      .map((anchorNode: HTMLAnchorElement) => {
+        const spellId = parseInt(anchorNode.href.replace(/\D/g, ""))
+        if (ClassSpecs[spellId]) {
+          primaryTalentsSpecId = ClassSpecs[spellId]
+        }
+        return spellId
+      })
+
+    primaryTalents = primaryTalents.length === 0 ? null : primaryTalents
+
+    let primaryGlyphs: Glyph[] | null = [
+      ...primaryTalentPage.querySelectorAll<HTMLAnchorElement>(
+        'div[data-glyphs="0"] .glyph.major a,div[data-glyphs="0"] .glyph.minor a'
+      )
+    ].map((anchorNode: HTMLAnchorElement) => {
+      const glyphSpellId = parseInt(anchorNode.href.replace(/\D/g, ""))
+      return this.glyphs.find((glyph) => glyph.spellId === glyphSpellId)
+    })
+
+    primaryGlyphs = primaryGlyphs.length === 0 ? null : primaryGlyphs
+
+    let secondaryTalentsSpecId: Specs | null = null
+
+    let secondaryTalents: number[] | null = [
+      ...primaryTalentPage.querySelectorAll<HTMLAnchorElement>("#spec-1 a.talent")
+    ]
+      .filter(
+        (anchorNode: HTMLAnchorElement) =>
+          anchorNode.style.backgroundImage.includes("bwicons") === false
+      )
+      .map((anchorNode: HTMLAnchorElement) => {
+        const spellId = parseInt(anchorNode.href.replace(/\D/g, ""))
+        if (ClassSpecs[spellId]) {
+          secondaryTalentsSpecId = ClassSpecs[spellId]
+        }
+        return spellId
+      })
+
+    secondaryTalents = secondaryTalents.length === 0 ? null : secondaryTalents
+
+    let secondaryGlyphs: Glyph[] | null = [
+      ...primaryTalentPage.querySelectorAll<HTMLAnchorElement>(
+        'div[data-glyphs="1"] .glyph.major a,div[data-glyphs="1"] .glyph.minor a'
+      )
+    ].map((anchorNode: HTMLAnchorElement) => {
+      const glyphSpellId = parseInt(anchorNode.href.replace(/\D/g, ""))
+      return this.glyphs.find((glyph) => glyph.spellId === glyphSpellId)
+    })
+
+    secondaryGlyphs = secondaryGlyphs.length === 0 ? null : secondaryGlyphs
 
     return {
+      classId,
       items,
       achievements,
-      talents,
-      glyphs,
-    };
+      primaryTalents,
+      primaryTalentsSpecId,
+      primaryGlyphs,
+      secondaryTalents,
+      secondaryGlyphs,
+      secondaryTalentsSpecId
+    }
+
+    // const talents: {
+    //   primary: number[]
+    //   secondary?: number[]
+    // } = { primary: [] }
+    // const glyphs: {
+    //   primary: { minor: number[]; major: number[] }
+    //   secondary?: { minor: number[]; major: number[] }
+    // } = {
+    //   primary: {
+    //     minor: [],
+    //     major: []
+    //   }
+    // }
+
+    // const { activeTalentGroupId, talentCount }: any = await this.page
+    //   .$$eval("#character-sheet .talent-spec-switch td a", (divEl: any) => {
+    //     let activeTalentGroupId = 0
+
+    //     if (divEl[0].parentElement.className === "selected") {
+    //       activeTalentGroupId = 0
+    //     }
+
+    //     if (divEl[1].parentElement.className === "selected") {
+    //       activeTalentGroupId = 1
+    //     }
+
+    //     return {
+    //       activeTalentGroupId,
+    //       talentCount: divEl.length
+    //     }
+    //   })
+    //   .catch(() => {
+    //     return {
+    //       activeTalentGroupId: 0,
+    //       talentCount: 1
+    //     }
+    //   })
+
+    // if (talentCount === 1) {
+    //   const primaryTalents: number[] = await this.page.$$eval(
+    //     `#spec-${0} a.talent`,
+    //     (anchors: any) => {
+    //       return anchors
+    //         .filter((x: any) => x.style.backgroundImage.includes("bwicons") === false)
+    //         .map((x: any) => parseInt(x.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   talents.primary = primaryTalents
+
+    //   const primaryTalentMajorGlyph = await this.page.$$eval(
+    //     `div[data-glyphs="${0}"] .glyph.major a`,
+    //     (anchors: any) => {
+    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   glyphs.primary.major = primaryTalentMajorGlyph
+
+    //   const primaryTalentMinorGlyph: number[] = await this.page.$$eval(
+    //     `div[data-glyphs="${0}"] .glyph.minor a`,
+    //     (anchors: any) => {
+    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   glyphs.primary.minor = primaryTalentMinorGlyph
+    // } else if (talentCount === 2) {
+    //   const primaryTalents: number[] = await this.page.$$eval(
+    //     `#spec-${0} a.talent`,
+    //     (anchors: any) => {
+    //       return anchors
+    //         .filter((x: any) => x.style.backgroundImage.includes("bwicons") === false)
+    //         .map((x: any) => parseInt(x.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   talents.primary = primaryTalents
+
+    //   const primaryTalentMajorGlyph: number[] = await this.page.$$eval(
+    //     `div[data-glyphs="${0}"] .glyph.major a`,
+    //     (anchors: any) => {
+    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   glyphs.primary.major = primaryTalentMajorGlyph
+
+    //   const primaryTalentMinorGlyph: number[] = await this.page.$$eval(
+    //     `div[data-glyphs="${0}"] .glyph.minor a`,
+    //     (anchors: any) => {
+    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   glyphs.primary.minor = primaryTalentMinorGlyph
+
+    //   const secondaryTalents: number[] = await this.page.$$eval(
+    //     `#spec-${1} a.talent`,
+    //     (anchors: any) => {
+    //       return anchors
+    //         .filter((x: any) => x.style.backgroundImage.includes("bwicons") === false)
+    //         .map((x: any) => parseInt(x.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   talents.secondary = secondaryTalents
+
+    //   const secondaryTalentMajorGlyph: number[] = await this.page.$$eval(
+    //     `div[data-glyphs="${1}"] .glyph.major a`,
+    //     (anchors: any) => {
+    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   glyphs.secondary = { major: [], minor: [] }
+    //   glyphs.secondary.major = secondaryTalentMajorGlyph
+
+    //   const secondaryTalentMinorGlyph: number[] = await this.page.$$eval(
+    //     `div[data-glyphs="${1}"] .glyph.minor a`,
+    //     (anchors: any) => {
+    //       return anchors.map((anchor: any) => parseInt(anchor.href.replace(/\D/g, "")))
+    //     }
+    //   )
+
+    //   glyphs.secondary.minor = secondaryTalentMinorGlyph
+    // }
+
+    // await this.browser.close()
   }
 }

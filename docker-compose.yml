@@ -28,6 +28,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend/src:/usr/backend/src
+      - ./backend/data:/usr/backend/data
     env_file:
       - ./env/.env.development
     ports:
@@ -47,5 +48,6 @@ services:
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/scripts/init_filtered_talents.sql:/docker-entrypoint-initdb.d/init_filtered_talents.sql
     ports:
       - ${DB_PORT_PUBLIC}:${DB_PORT_CONTAINER}

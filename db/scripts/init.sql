@@ -1,7 +1,12 @@
 CREATE DATABASE raid;
 
 USE raid;
-
+CREATE TABLE filtered_talents(
+  id int NOT NULL AUTO_INCREMENT,
+  classId int NOT NULL,
+  spellId int NOT NULL,
+  PRIMARY KEY (id)
+);
 
 USE mysql;
 /* CREATE raid user & grant priv for raid db */
