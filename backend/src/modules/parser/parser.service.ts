@@ -3,10 +3,13 @@ import { Injectable } from "@nestjs/common"
 import { Opcodes, OpcodeValues } from "@type/opcodes"
 import { buff2Str } from "../../helpers/buff2str"
 import { Member, Raid } from "@type/raid"
+import { MSG_RANDOM_ROLL_RETURN } from "@type/roll"
+import { ChatType, Language } from "@type/chat"
+import { SMSG_MESSAGECHAT_RETURN } from "@type/parsed-results"
 
 @Injectable()
 export class ParserService {
-  private printPacket(opCode: OpcodeValues, packetData: Buffer) {
+  public printPacket(opCode: OpcodeValues, packetData: Buffer) {
     const findedOpcode = Object.entries(Opcodes).filter((entry) => {
       return entry[1] === opCode
     })[0]
@@ -83,6 +86,21 @@ export class ParserService {
     //console.log(payload);
   }
 
+  MSG_RANDOM_ROLL(packet: Buffer, cb: (data: MSG_RANDOM_ROLL_RETURN) => void) {
+    let offset = 0
+    const minRoll = packet.readInt32LE(offset)
+    offset += 4
+
+    const maxRoll = packet.readInt32LE(offset)
+    offset += 4
+
+    const rollValue = packet.readInt32LE(offset)
+    offset += 4
+
+    const playerGUID = packet.readBigUInt64LE(offset)
+    cb({ min: minRoll, max: maxRoll, roll: rollValue, playerGUID })
+  }
+
   SMSG_GROUP_LIST(packet: Buffer, cb: (data: Raid | null) => void) {
     let offset = 0
 
@@ -95,7 +113,7 @@ export class ParserService {
       counter: 0,
       memberCount: 0,
       members: [],
-      // leaderGUID: 0,
+      leaderGUID: BigInt(0),
       lootMethod: 0,
       // looterGUID: 0,
       lootTreshold: 0,
@@ -138,7 +156,7 @@ export class ParserService {
       const startOffset = offset
       const member: Member = {
         name: "",
-        // GUID: Buffer.alloc(0),
+        GUID: BigInt(0),
         role: 0,
         status: 0,
         subGroup: 1,
@@ -153,7 +171,7 @@ export class ParserService {
         }
       }
 
-      // member.GUID = packet.slice(offset, 8);
+      member.GUID = packet.slice(offset, offset + 8).readBigUInt64LE()
       offset += 8
 
       member.status = packet.readUInt8(offset)
@@ -171,7 +189,7 @@ export class ParserService {
       raid.members.push(member)
     }
 
-    // raid.leaderGUID = packet.slice(offset, 8);
+    raid.leaderGUID = packet.readBigUint64LE(offset)
     offset += 8
 
     raid.lootMethod = packet.readUInt8(offset)
@@ -192,5 +210,36 @@ export class ParserService {
     // Unknown Byte
     // packet.readUInt8(offset);
     cb(raid)
+  }
+
+  SMSG_MESSAGECHAT(packet: Buffer, cb: (data: SMSG_MESSAGECHAT_RETURN) => void) {
+    let offset = 0
+    const type: ChatType = packet.readUInt8(offset)
+    offset++
+
+    const language: Language = packet.readUInt32LE(offset)
+    offset += 4
+
+    const senderGUID: bigint = packet.readBigUInt64LE(offset)
+    offset += 8
+
+    //const bullshitZeroes = packet.readUInt32LE(offset)
+    offset += 4
+
+    const receiverGUID: bigint = packet.readBigUInt64LE(offset)
+    offset += 8
+
+    const messageLength = packet.readInt32LE(offset)
+    offset += 4
+
+    const message = packet.slice(offset, packet.length - 2).toString()
+    offset += packet.length - 2 - offset
+
+    const chatTag = packet.readUInt8(offset)
+    offset++
+
+    //const unknownByte = packet.readUInt8(offset)
+
+    cb({ type, language, senderGUID, receiverGUID, messageLength, message, chatTag })
   }
 }

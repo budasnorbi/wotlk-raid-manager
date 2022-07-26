@@ -33,6 +33,7 @@ services:
       - ./env/.env.development
     ports:
       - ${BACKEND_PORT_PUBLIC}:${BACKEND_PORT_CONTAINER}
+      - 54000:54000
     #depends_on:
     #- auth
     #- db
