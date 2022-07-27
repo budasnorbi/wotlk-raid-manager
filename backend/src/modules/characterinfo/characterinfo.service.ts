@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common"
-import { Classes } from "@type/classes"
-import { Item } from "@type/item"
+import { DBItem, Item } from "@type/item"
 import { JSDOM } from "jsdom"
 import fetch from "node-fetch"
 import { Glyph } from "@type/glyphs"
@@ -8,10 +7,54 @@ import { ClassSpecs, Specs } from "@type/class-specs"
 import { LocalDbService } from "@modules/localdb/localdb.service"
 import { getClassId } from "@helpers/classid"
 import { destructItem } from "@helpers/destruct-item"
+import { getItemInventoryTypeBySniffIndex } from "@helpers/item-inventory-type"
 
 @Injectable()
 export class CharacterInfoService {
   constructor(private localDbService: LocalDbService) {}
+
+  public async getCharacterItemByInventoryType(
+    name: string,
+    inventoryType: DBItem["InventoryType"]
+  ) {
+    const profilePage = await fetch(`http://armory.warmane.com/character/${name}/Icecrown/profile`)
+      .then((res) => res.text())
+      .then((htmlStr: string) => new JSDOM(htmlStr).window.document)
+
+    const classText = profilePage
+      .querySelector<HTMLDivElement>(".level-race-class")
+      .textContent.replace("Level ", "")
+      .replace(/\d/g, "")
+      .trim()
+      .replace(", Icecrown", "")
+      .toLowerCase()
+
+    const classId = getClassId(classText)
+
+    const items = [...profilePage.querySelectorAll<HTMLAnchorElement>(".item-model .item-slot a")]
+      // Filter tabard and shirt
+      .filter((_, index) => index !== 5 && index !== 6)
+
+    for (let index = 0; index < items.length; index++) {
+      const itemInventoryType = getItemInventoryTypeBySniffIndex(classId, index)
+
+      if (itemInventoryType !== inventoryType) {
+        continue
+      }
+
+      const anchorNode: HTMLAnchorElement = items[index]
+      const splittedItemStr = anchorNode.rel.split("&")
+
+      if (splittedItemStr[0]?.includes("item")) {
+        const itemId = parseInt(splittedItemStr[0].replace("item=", ""))
+        const item = this.localDbService.item(itemId)
+
+        return item ? destructItem(item) : null
+      }
+    }
+
+    return null
+  }
   public async getCharacterInfo(name: string) {
     const profilePage = await fetch(`http://armory.warmane.com/character/${name}/Icecrown/profile`)
       .then((res) => res.text())
@@ -32,6 +75,7 @@ export class CharacterInfoService {
       .filter((_, index) => index !== 5 && index !== 6)
       .map((anchorNode: HTMLAnchorElement) => {
         const returnObj: Item = { item: null, gems: null, enchant: null }
+
         const splittedItemStr = anchorNode.rel.split("&")
 
         if (splittedItemStr[0]?.includes("item")) {
@@ -40,20 +84,6 @@ export class CharacterInfoService {
 
           if (item) {
             returnObj.item = destructItem(item)
-            const { itemset } = returnObj.item
-
-            if (itemset !== 0) {
-              const detailedItemSet = this.localDbService.itemSet(itemset)
-
-              if (detailedItemSet) {
-                const { FactionGainID, ID } = detailedItemSet
-                returnObj.item.itemset = { name: FactionGainID, id: ID }
-              } else {
-                returnObj.item.itemset = itemset
-              }
-            } else {
-              returnObj.item.itemset = itemset
-            }
           } else {
             returnObj.item = null
           }

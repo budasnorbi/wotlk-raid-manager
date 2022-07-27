@@ -53,11 +53,11 @@ export enum RaidDifficulty {
 
 export interface Member {
   name: string
-  GUID: bigint
-  status: PlayerStatus
-  subGroup: number
-  updateFlags: number
-  role: RaidRoles
+  GUID: Buffer
+  // status: PlayerStatus
+  // subGroup: number
+  // updateFlags: number
+  // role: RaidRoles
 }
 
 export interface Raid {
@@ -65,14 +65,19 @@ export interface Raid {
   subGroup: number
   flags: number
   playerRolesAssigned: number
-  // groupGUID: Buffer;
+  groupGUID: Buffer | null
   counter: number
   memberCount: number
   members: Member[]
-  leaderGUID: bigint
+  leaderGUID: Buffer | null
   lootMethod: LootMethod
-  // looterGUID: number;
+  looterGUID: Buffer | null
   lootTreshold: LootTreshold
   dungeonDifficulty: DungeonDifficulty
   raidDifficulty: RaidDifficulty
+  unknownByte: number
+}
+
+export interface RaidWithDetailedLeader extends Raid {
+  leaderName: string
 }

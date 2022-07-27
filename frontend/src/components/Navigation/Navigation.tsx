@@ -12,5 +12,5 @@ interface NavigationProps {
   >
 }
 export const Navigation: FC<NavigationProps> = (props) => {
-  return <div>Navigation</div>
+  return <div></div>
 }

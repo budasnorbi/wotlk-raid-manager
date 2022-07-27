@@ -4,7 +4,7 @@ import { ItemCompareService } from "./item-compare.service"
 import { TalentCompareService } from "./talent-compare.service"
 
 @Controller("compare")
-export class CompareController {
+export class ApiController {
   constructor(
     private talentCompareService: TalentCompareService,
     private itemCompareService: ItemCompareService,

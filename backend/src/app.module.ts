@@ -1,5 +1,5 @@
 import { CharacterInfoModule } from "@modules/characterinfo/characterinfo.module"
-import { CompareModule } from "@modules/compare/compare.module"
+import { ApiModule } from "@modules/api/api.module"
 import { LocalDbModule } from "@modules/localdb/localdb.module"
 import { ParserModule } from "@modules/parser/parser.module"
 import { Module } from "@nestjs/common"
@@ -19,9 +19,9 @@ import { TypeOrmModule } from "@nestjs/typeorm"
       synchronize: false,
       autoLoadEntities: true
     }),
-    ParserModule,
     CharacterInfoModule,
-    CompareModule
+    ParserModule,
+    ApiModule
   ],
   controllers: [],
   providers: []

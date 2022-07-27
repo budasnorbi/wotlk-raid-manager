@@ -2,8 +2,8 @@ import { Enchant } from "./enchants"
 import { Gem } from "./gems"
 
 export interface Item {
-  item: Optional<DBItem>
-  enchant?: Enchant
+  item: DestructedItem | null
+  enchant?: Enchant | null
   gems?: Gem[]
 }
 
