@@ -1,13 +1,13 @@
 import { Injectable } from "@nestjs/common"
-import { DBItem, Item } from "@type/item"
 import { JSDOM } from "jsdom"
 import fetch from "node-fetch"
-import { Glyph } from "@type/glyphs"
-import { ClassSpecs, Specs } from "@type/class-specs"
+import { ClassSpecs } from "@type/class-specs"
 import { LocalDbService } from "@modules/localdb/localdb.service"
 import { getClassId } from "@helpers/classid"
 import { destructItem } from "@helpers/destruct-item"
 import { getItemInventoryTypeBySniffIndex } from "@helpers/item-inventory-type"
+import { ItemWithGemsEnchant, Glyph, CharacterInfo } from "@type/scraped-types"
+import { DBItem, Specs } from "@type/trinity-types"
 
 @Injectable()
 export class CharacterInfoService {
@@ -35,6 +35,8 @@ export class CharacterInfoService {
       // Filter tabard and shirt
       .filter((_, index) => index !== 5 && index !== 6)
 
+    const characterItem: ItemWithGemsEnchant = { item: null, enchant: null, gems: [] }
+
     for (let index = 0; index < items.length; index++) {
       const itemInventoryType = getItemInventoryTypeBySniffIndex(classId, index)
 
@@ -49,13 +51,29 @@ export class CharacterInfoService {
         const itemId = parseInt(splittedItemStr[0].replace("item=", ""))
         const item = this.localDbService.item(itemId)
 
-        return item ? destructItem(item) : null
+        characterItem.item = item ? destructItem(item) : null
       }
+
+      if (splittedItemStr[1]?.includes("ench")) {
+        const enchantId = parseInt(splittedItemStr[1].replace("ench=", ""))
+        characterItem.enchant = this.localDbService.enchant(enchantId)
+      }
+
+      if (splittedItemStr[2]?.includes("gems")) {
+        characterItem.gems = splittedItemStr[2]
+          .replace("gems=", "")
+          .split(":")
+          .map((gemId: string) => this.localDbService.gem(parseInt(gemId)))
+          .filter((gem) => gem !== null)
+      }
+
+      return characterItem
     }
 
     return null
   }
-  public async getCharacterInfo(name: string) {
+
+  public async getCharacterInfo(name: string): Promise<CharacterInfo> {
     const profilePage = await fetch(`http://armory.warmane.com/character/${name}/Icecrown/profile`)
       .then((res) => res.text())
       .then((htmlStr: string) => new JSDOM(htmlStr).window.document)
@@ -74,7 +92,7 @@ export class CharacterInfoService {
       // Filter tabard and shirt
       .filter((_, index) => index !== 5 && index !== 6)
       .map((anchorNode: HTMLAnchorElement) => {
-        const returnObj: Item = { item: null, gems: null, enchant: null }
+        const returnObj: ItemWithGemsEnchant = { item: null, gems: null, enchant: null }
 
         const splittedItemStr = anchorNode.rel.split("&")
 
@@ -82,11 +100,7 @@ export class CharacterInfoService {
           const itemId = parseInt(splittedItemStr[0].replace("item=", ""))
           const item = this.localDbService.item(itemId)
 
-          if (item) {
-            returnObj.item = destructItem(item)
-          } else {
-            returnObj.item = null
-          }
+          returnObj.item = item ? destructItem(item) : null
         }
 
         if (splittedItemStr[1]?.includes("ench")) {

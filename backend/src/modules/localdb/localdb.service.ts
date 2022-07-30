@@ -1,12 +1,10 @@
 import { Injectable } from "@nestjs/common"
-import { DBItem } from "@type/item"
+import { Gem, Enchant, Glyph } from "@type/scraped-types"
+import { DBAchievements, DBItem, ItemSet } from "@type/trinity-types"
+
 import * as asyncFs from "fs/promises"
 import { dirname } from "path"
-import { Gem } from "@type/gems"
-import { Enchant } from "@type/enchants"
-import { Achievements } from "@type/achievements"
-import { Glyph } from "@type/glyphs"
-import { ItemSet } from "@type/item-sets"
+
 const appDir = dirname(require.main.filename)
 
 @Injectable()
@@ -14,7 +12,7 @@ export class LocalDbService {
   private gems: Gem[]
   private enchants: Enchant[]
   private items: DBItem[]
-  private achievements: Achievements
+  private achievements: DBAchievements
   private glyphs: Glyph[]
   private itemSets: ItemSet[]
 

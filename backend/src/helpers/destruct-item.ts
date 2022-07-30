@@ -1,4 +1,5 @@
-import { DBItem, DestructedItem } from "@type/item"
+import { DestructedItem } from "@type/scraped-types"
+import { DBItem } from "@type/trinity-types"
 
 export const destructItem = (item: DBItem): DestructedItem => {
   const {

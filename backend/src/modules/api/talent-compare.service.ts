@@ -4,8 +4,6 @@ import { Injectable, InternalServerErrorException } from "@nestjs/common"
 import { InjectRepository } from "@nestjs/typeorm"
 
 // import { FilteredTalentsRepository } from "@repositories/FilteredTalents.repository"
-import { Classes } from "@type/classes"
-import { SniffedTalents } from "@type/sniffed-talent"
 import * as asyncFs from "fs/promises"
 import { dirname } from "path"
 import { Repository } from "typeorm"

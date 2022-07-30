@@ -1,4 +1,5 @@
-import { SMSG_MESSAGECHAT_RETURN, ChatType, Language } from "@type/chat"
+import { SMSG_MESSAGECHAT_RETURN } from "@type/parsers-types"
+import { ChatType, Language } from "@type/trinity-types"
 
 export const PARSE_SMSG_MESSAGECHAT = (packet: Buffer): SMSG_MESSAGECHAT_RETURN => {
   let offset = 0

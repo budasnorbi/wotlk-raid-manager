@@ -1,4 +1,4 @@
-import { MSG_RANDOM_ROLL_RETURN } from "@type/roll"
+import { MSG_RANDOM_ROLL_RETURN } from "@type/parsers-types"
 
 export const PARSE_MSG_RANDOM_ROLL = (packet: Buffer): MSG_RANDOM_ROLL_RETURN => {
   if (packet.length === 8) {

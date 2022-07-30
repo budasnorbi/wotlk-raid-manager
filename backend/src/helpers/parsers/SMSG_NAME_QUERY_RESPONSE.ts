@@ -1,5 +1,5 @@
 import { buff2Str } from "@helpers/buff2str"
-import { SMSG_NAME_QUERY_RESPONSE_RETURN } from "@type/query"
+import { SMSG_NAME_QUERY_RESPONSE_RETURN } from "@type/parsers-types"
 
 export const PARSE_SMSG_NAME_QUERY_RESPONSE = (packet: Buffer): SMSG_NAME_QUERY_RESPONSE_RETURN => {
   let offset = 0
@@ -17,7 +17,7 @@ export const PARSE_SMSG_NAME_QUERY_RESPONSE = (packet: Buffer): SMSG_NAME_QUERY_
     }
   }
 
-  const nameKnown = packet.readUInt8(offset)
+  const nameIsKnown = packet.readUInt8(offset)
   offset++
 
   let name: string | null = null

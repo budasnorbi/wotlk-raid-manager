@@ -1,11 +1,8 @@
 import { Injectable } from "@nestjs/common"
-import { Enchant } from "@type/enchants"
-import { DBItem, DetailedItem, Item } from "@type/item"
-
 
 @Injectable()
 export class ItemCompareService {
-  public async getCharacterItemDetails(characterItems: Item[]) {
+  public async getCharacterItemDetails(characterItems: any) {
     return characterItems.map((characterItem) => {
       // const detailedItem: any = this.items.find((item) => item.entry === characterItem.item)
       // if (characterItem.enchant) {

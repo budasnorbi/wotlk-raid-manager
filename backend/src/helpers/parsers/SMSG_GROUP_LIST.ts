@@ -1,10 +1,10 @@
 import { buff2Str } from "@helpers/buff2str"
-import { Raid, Member } from "@type/raid"
+import { SMSG_GROUP_LIST_RETURN } from "@type/parsers-types"
 
-export const PARSE_SMSG_GROUP_LIST = (packet: Buffer): Raid => {
+export const PARSE_SMSG_GROUP_LIST = (packet: Buffer): SMSG_GROUP_LIST_RETURN => {
   let offset = 0
 
-  const parsedPacket: Raid = {
+  const parsedPacket = {
     groupType: 0,
     subGroup: 0,
     flags: 0,
@@ -53,13 +53,13 @@ export const PARSE_SMSG_GROUP_LIST = (packet: Buffer): Raid => {
   if (parsedPacket.memberCount) {
     for (let i = 0; i < parsedPacket.memberCount; i++) {
       const startOffset = offset
-      const member: Member = {
-        name: "",
-        GUID: null
-        // role: 0,
-        // status: 0,
-        // subGroup: 1,
-        // updateFlags: 0
+      const member = {
+        name: null,
+        GUID: Buffer.alloc(8),
+        role: 0,
+        status: 0,
+        subGroup: 1,
+        updateFlags: 0
       }
 
       for (let k = startOffset; k < packet.length; k++) {
@@ -73,16 +73,16 @@ export const PARSE_SMSG_GROUP_LIST = (packet: Buffer): Raid => {
       member.GUID = packet.slice(offset, offset + 8)
       offset += 8
 
-      //member.status = packet.readUInt8(offset)
+      member.status = packet.readUInt8(offset)
       offset++
 
-      //member.subGroup = packet.readUInt8(offset) + 1
+      member.subGroup = packet.readUInt8(offset) + 1
       offset++
 
-      //member.updateFlags = packet.readUInt8(offset)
+      member.updateFlags = packet.readUInt8(offset)
       offset++
 
-      //member.role = packet.readUInt8(offset)
+      member.role = packet.readUInt8(offset)
       offset++
 
       parsedPacket.members.push(member)

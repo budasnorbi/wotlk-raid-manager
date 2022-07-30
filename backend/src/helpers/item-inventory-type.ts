@@ -1,5 +1,4 @@
-import { Classes } from "@type/classes"
-import { InventoryType } from "@type/item"
+import { Classes, InventoryType } from "@type/trinity-types"
 
 export const getItemInventoryTypeBySniffIndex = (
   classId: Classes,

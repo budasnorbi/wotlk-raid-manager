@@ -1,40 +1,7 @@
-import { Classes } from "./classes"
-
-export enum Specs {
-  MageFire = 41,
-  MageFrost = 61,
-  MageArcane = 81,
-  WarriorArms = 161,
-  WarriorFury = 164,
-  WarriorProtection = 163,
-  RogueCombat = 181,
-  RogueAssassination = 182,
-  RogueSubtlety = 183,
-  PriestDiscipline = 201,
-  PriestHoly = 202,
-  PriestShadow = 203,
-  ShamanElemental = 261,
-  ShamanRestoration = 262,
-  ShamanEnhancement = 263,
-  DruidFeralCombat = 281,
-  DruidRestoration = 282,
-  DruidBalance = 283,
-  WarlockDestruction = 301,
-  WarlockAffliction = 302,
-  WarlockDemonology = 303,
-  HunterBeastMastery = 361,
-  HunterMarksmanship = 363,
-  HunterSurvival = 362,
-  PaladinHoly = 382,
-  PaladinProtection = 383,
-  PaladinRetribution = 381,
-  DeathKnightBlood = 398,
-  DeathKnightFrost = 399,
-  DeathKnightUnholy = 400
-}
+import { Specs } from "./trinity-types"
 
 export const ClassSpecs = {
-  49028: Specs.DeathKnightBlood,
+  55050: Specs.DeathKnightBlood,
   49184: Specs.DeathKnightFrost,
   49206: Specs.DeathKnightUnholy,
   48505: Specs.DruidBalance,

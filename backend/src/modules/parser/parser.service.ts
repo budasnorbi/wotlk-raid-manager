@@ -1,21 +1,19 @@
 import { Injectable, Logger } from "@nestjs/common"
-import { Opcodes, OpcodeValues } from "@type/opcodes"
-import { Raid } from "@type/raid"
-import { SMSG_MESSAGECHAT_RETURN } from "@type/chat"
 import * as net from "net"
 import * as udp from "dgram"
-import { MSG_RANDOM_ROLL_RETURN } from "@type/roll"
-import { SMSG_NAME_QUERY_RESPONSE_RETURN } from "@type/query"
 import { PARSE_MSG_RANDOM_ROLL } from "@helpers/parsers/MSG_RANDOM_ROLL"
 import { PARSE_SMSG_GROUP_LIST } from "@helpers/parsers/SMSG_GROUP_LIST"
 import { PARSE_SMSG_MESSAGECHAT } from "@helpers/parsers/SMSG_MESSAGECHAT"
 import { PARSE_SMSG_NAME_QUERY_RESPONSE } from "@helpers/parsers/SMSG_NAME_QUERY_RESPONSE"
-
-type ImplementedOpcodes =
-  | Opcodes.MSG_RANDOM_ROLL
-  | Opcodes.SMSG_GROUP_LIST
-  | Opcodes.SMSG_MESSAGECHAT
-  | Opcodes.SMSG_NAME_QUERY_RESPONSE
+import {
+  ImplementedOpcodes,
+  SMSG_MESSAGECHAT_RETURN,
+  SMSG_NAME_QUERY_RESPONSE_RETURN,
+  MSG_RANDOM_ROLL_RETURN,
+  SMSG_GROUP_LIST_RETURN
+} from "@type/parsers-types"
+import { Opcodes } from "@type/trinity-types"
+import { formatBufferForPrint } from "@helpers/format-buffer"
 
 @Injectable()
 export class ParserService {
@@ -70,7 +68,7 @@ export class ParserService {
   ): void
   public registerEvent(
     opCode: Opcodes.SMSG_GROUP_LIST,
-    actionHandler: (parsedData: Raid) => Promise<void>,
+    actionHandler: (parsedData: SMSG_GROUP_LIST_RETURN) => Promise<void>,
     debug?: boolean
   ): void
   public registerEvent(
@@ -101,11 +99,11 @@ export class ParserService {
     }
   }
 
-  public printPacket(opCode: OpcodeValues, packetData: Buffer) {
+  public printPacket(opCode: Opcodes, packetData: Buffer) {
     const findedOpcode = Object.entries(Opcodes).filter((entry) => {
       return entry[1] === opCode
     })[0]
 
-    this.logger.debug(`${findedOpcode[0]}`, packetData.toString("hex").match(/../g).join(" "))
+    this.logger.debug(`${findedOpcode[0]}`, formatBufferForPrint(packetData))
   }
 }

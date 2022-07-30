@@ -1,4 +1,4 @@
-import { Classes } from "@type/classes"
+import { Classes } from "@type/trinity-types"
 
 export const getClassId = (classText: string): Classes => {
   let classId: Classes = -1
