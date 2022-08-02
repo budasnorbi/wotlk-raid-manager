@@ -10,4 +10,9 @@ export class ApiController {
     private itemCompareService: ItemCompareService,
     private characterInfoService: CharacterInfoService
   ) {}
+
+  @Get("test")
+  test(@Query("name") name: string) {
+    return this.characterInfoService.getCharacterInfo(name)
+  }
 }

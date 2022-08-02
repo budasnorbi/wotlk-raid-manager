@@ -26,7 +26,7 @@ export interface SMSG_GROUP_LIST_RETURN {
     subGroup: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
     updateFlags: number
   }[]
-  leaderGUID: Buffer | null
+  leaderGUID: Buffer
   lootMethod: LootMethod
   looterGUID: Buffer | null
   lootTreshold: LootTreshold
@@ -36,9 +36,9 @@ export interface SMSG_GROUP_LIST_RETURN {
 }
 
 export interface Member {
-  name: string | null
+  name: string
   GUID: Buffer
-  characterInfo: CharacterInfo | null
+  characterInfo: CharacterInfo
 }
 
 export type RollType = "os" | "ms"

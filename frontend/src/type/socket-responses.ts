@@ -1,13 +1,28 @@
 import { Raid, RollType } from "./parsers-types"
-import { DestructedItem, ItemWithGemsEnchant } from "./scraped-types"
+import { CharacterInfo, DestructedItem, ItemWithGemsEnchant } from "./scraped-types"
+import { LootMethod, LootTreshold, RaidDifficulty } from "./trinity-types"
 
 export type PARTY_GROUP_CONVERTED_TO_RAID = Raid
-export type PLAYER_JOINED_TO_THE_RAID = Raid
-export type PLAYER_LEAVED_THE_RAID = Raid
-export type RAID_LEADER_UPDATED = Raid
-export type RAID_DIFFICULTY_UPDATED = Raid
-export type RAID_LOOTMETHOD_UPDATED = Raid
-export type RAID_LOOT_TRESHOLD_UPDATED = Raid
+export interface PLAYER_JOINED_TO_THE_RAID {
+  GUID: Buffer
+  name: string
+  characterInfo: CharacterInfo
+}
+export interface PLAYER_LEAVED_THE_RAID {
+  name: string
+}
+export interface RAID_LEADER_UPDATED {
+  name: string
+}
+export interface RAID_DIFFICULTY_UPDATED {
+  raidDifficulty: RaidDifficulty
+}
+export interface RAID_LOOTMETHOD_UPDATED {
+  lootMethod: LootMethod
+}
+export interface RAID_LOOT_TRESHOLD_UPDATED {
+  treshold: LootTreshold
+}
 export interface RAID_ROLL_STARTED {
   item: DestructedItem
   type: RollType

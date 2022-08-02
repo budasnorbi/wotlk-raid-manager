@@ -47,24 +47,31 @@ export class CharacterInfoService {
       const anchorNode: HTMLAnchorElement = items[index]
       const splittedItemStr = anchorNode.rel.split("&")
 
-      if (splittedItemStr[0]?.includes("item")) {
-        const itemId = parseInt(splittedItemStr[0].replace("item=", ""))
-        const item = this.localDbService.item(itemId)
+      for (let i = 0; i < splittedItemStr.length; i++) {
+        if (splittedItemStr[i]?.includes("item")) {
+          const itemId = parseInt(splittedItemStr[i].replace("item=", ""))
+          const item = this.localDbService.item(itemId)
 
-        characterItem.item = item ? destructItem(item) : null
-      }
+          const destructedItem = item ? destructItem(item) : null
 
-      if (splittedItemStr[1]?.includes("ench")) {
-        const enchantId = parseInt(splittedItemStr[1].replace("ench=", ""))
-        characterItem.enchant = this.localDbService.enchant(enchantId)
-      }
+          characterItem.item = destructedItem
+          continue
+        }
 
-      if (splittedItemStr[2]?.includes("gems")) {
-        characterItem.gems = splittedItemStr[2]
-          .replace("gems=", "")
-          .split(":")
-          .map((gemId: string) => this.localDbService.gem(parseInt(gemId)))
-          .filter((gem) => gem !== null)
+        if (splittedItemStr[i]?.includes("ench")) {
+          const enchantId = parseInt(splittedItemStr[i].replace("ench=", ""))
+          characterItem.enchant = this.localDbService.enchant(enchantId)
+          continue
+        }
+
+        if (splittedItemStr[i]?.includes("gems")) {
+          characterItem.gems = splittedItemStr[i]
+            .replace("gems=", "")
+            .split(":")
+            .map((gemId: string) => this.localDbService.gem(parseInt(gemId)))
+            .filter((gem) => gem !== null)
+          continue
+        }
       }
 
       return characterItem
@@ -96,24 +103,31 @@ export class CharacterInfoService {
 
         const splittedItemStr = anchorNode.rel.split("&")
 
-        if (splittedItemStr[0]?.includes("item")) {
-          const itemId = parseInt(splittedItemStr[0].replace("item=", ""))
-          const item = this.localDbService.item(itemId)
+        for (let i = 0; i < splittedItemStr.length; i++) {
+          if (splittedItemStr[i]?.includes("item")) {
+            const itemId = parseInt(splittedItemStr[i].replace("item=", ""))
+            const item = this.localDbService.item(itemId)
 
-          returnObj.item = item ? destructItem(item) : null
-        }
+            const destructedItem = item ? destructItem(item) : null
 
-        if (splittedItemStr[1]?.includes("ench")) {
-          const enchantId = parseInt(splittedItemStr[1].replace("ench=", ""))
-          returnObj.enchant = this.localDbService.enchant(enchantId)
-        }
+            returnObj.item = destructedItem
+            continue
+          }
 
-        if (splittedItemStr[2]?.includes("gems")) {
-          returnObj.gems = splittedItemStr[2]
-            .replace("gems=", "")
-            .split(":")
-            .map((gemId: string) => this.localDbService.gem(parseInt(gemId)))
-            .filter((gem) => gem !== null)
+          if (splittedItemStr[i]?.includes("ench")) {
+            const enchantId = parseInt(splittedItemStr[i].replace("ench=", ""))
+            returnObj.enchant = this.localDbService.enchant(enchantId)
+            continue
+          }
+
+          if (splittedItemStr[i]?.includes("gems")) {
+            returnObj.gems = splittedItemStr[i]
+              .replace("gems=", "")
+              .split(":")
+              .map((gemId: string) => this.localDbService.gem(parseInt(gemId)))
+              .filter((gem) => gem !== null)
+            continue
+          }
         }
 
         return returnObj
@@ -174,6 +188,17 @@ export class CharacterInfoService {
     )
       .then((res) => res.text())
       .then((htmlStr: string) => new JSDOM(htmlStr).window.document)
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const activeTalentIndex: number = [
+      ...primaryTalentPage.querySelectorAll<HTMLAnchorElement>(
+        "#character-sheet .talent-spec-switch td a"
+      )
+    ]
+      .map((anchorNode, index) =>
+        anchorNode.parentElement.className === "selected" ? index : null
+      )
+      .filter((value) => value !== null)[0]
 
     let primaryTalentsSpecId: Specs | null = null
     let primaryTalents: number[] | null = [
@@ -243,7 +268,8 @@ export class CharacterInfoService {
       primaryGlyphs,
       secondaryTalents,
       secondaryGlyphs,
-      secondaryTalentsSpecId
+      secondaryTalentsSpecId,
+      activeTalentIndex
     }
   }
 }

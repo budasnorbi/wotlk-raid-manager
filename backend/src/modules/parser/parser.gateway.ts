@@ -45,6 +45,9 @@ export class ParserGateway implements OnGatewayInit, OnGatewayConnection, OnGate
 
     // Handle SMSG_GROUP_LIST
     this.parserService.registerEvent(Opcodes.SMSG_GROUP_LIST, async (packetData) => {
+      if (this.raidData && !packetData) {
+        this.socket.emit("RAID_GROUP_CONVERTED_TO_GROUP", null)
+      }
       // PARTY GROUP CONVERTED TO RAID
       if (!this.raidData && packetData) {
         const leader = this.nameStorage.find((nameObj) =>
@@ -103,7 +106,7 @@ export class ParserGateway implements OnGatewayInit, OnGatewayConnection, OnGate
             this.raidData.members.push({ GUID, name, characterInfo })
             this.raidData.memberCount = packetData.memberCount
 
-            this.socket.emit("PLAYER_JOINED_TO_THE_RAID", this.raidData)
+            this.socket.emit("PLAYER_JOINED_TO_THE_RAID", { GUID, name, characterInfo })
           }
         }
 
@@ -119,7 +122,7 @@ export class ParserGateway implements OnGatewayInit, OnGatewayConnection, OnGate
             )
             this.raidData.memberCount = packetData.memberCount
 
-            this.socket.emit("PLAYER_LEAVED_THE_RAID", this.raidData)
+            this.socket.emit("PLAYER_LEAVED_THE_RAID", { name: leavedRaidMember.name })
           }
         }
 
@@ -145,7 +148,7 @@ export class ParserGateway implements OnGatewayInit, OnGatewayConnection, OnGate
             this.raidData.leaderName = newLeader.name
             this.raidData.leaderCharacterInfo = newLeader.characterInfo
 
-            this.socket.emit("RAID_LEADER_UPDATED", this.raidData)
+            this.socket.emit("RAID_LEADER_UPDATED", { name: newLeader.name })
           }
         }
 
@@ -153,21 +156,21 @@ export class ParserGateway implements OnGatewayInit, OnGatewayConnection, OnGate
         if (this.raidData.raidDifficulty !== packetData.raidDifficulty) {
           this.raidData.raidDifficulty = packetData.raidDifficulty
 
-          this.socket.emit("RAID_DIFFICULTY_UPDATED", this.raidData)
+          this.socket.emit("RAID_DIFFICULTY_UPDATED", { raidDifficulty: packetData.raidDifficulty })
         }
 
         // LOOTMETHOD UPDATED
         if (this.raidData.lootMethod !== packetData.lootMethod) {
           this.raidData.lootMethod = packetData.lootMethod
 
-          this.socket.emit("RAID_LOOTMETHOD_UPDATED", this.raidData)
+          this.socket.emit("RAID_LOOTMETHOD_UPDATED", { lootMethod: packetData.lootMethod })
         }
 
         // LOOTTRESHOLD UPDATED
         if (this.raidData.lootTreshold !== packetData.lootTreshold) {
           this.raidData.lootTreshold = packetData.lootTreshold
 
-          this.socket.emit("RAID_LOOT_TRESHOLD_UPDATED", this.raidData)
+          this.socket.emit("RAID_LOOT_TRESHOLD_UPDATED", { treshold: packetData.lootTreshold })
         }
       }
     })
@@ -305,15 +308,7 @@ export class ParserGateway implements OnGatewayInit, OnGatewayConnection, OnGate
 
   handleConnection(client: Socket) {
     if (this.raidData) {
-      const { members, leaderGUID, leaderName, raidDifficulty, lootMethod } = this.raidData
-
-      client.emit("RAID_DETAILS", {
-        members,
-        leaderGUID,
-        leaderName,
-        raidDifficulty,
-        lootMethod
-      })
+      client.emit("RAID_DETAILS", this.raidData)
     }
 
     this.logger.log(`Client connected: ${client.id}`)

@@ -113,4 +113,5 @@ export interface CharacterInfo {
   secondaryTalents: number[]
   secondaryGlyphs: Glyph[]
   secondaryTalentsSpecId: Specs | null
+  activeTalentIndex: number
 }
